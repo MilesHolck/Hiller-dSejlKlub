@@ -8,6 +8,8 @@ namespace HillerødSejlKlub
 {
     public class MemberRepository : IRepository
     {
+
+
         public void Create()
         {
             throw new NotImplementedException();
