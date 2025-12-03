@@ -8,8 +8,17 @@ namespace HillerødSejlKlub
 {
     public class MemberRepository : IRepository
     {
+        //Instance field
+        private List<Member> _members; 
+        
+        
+        //Constructor 
+        public MemberRepository()
+        {
+            _members = new List<Member>(); 
+        }
 
-
+        //Methods (Interface) NOT WORKING YET
         public void Create()
         {
             throw new NotImplementedException();
@@ -30,28 +39,27 @@ namespace HillerødSejlKlub
             throw new NotImplementedException();
         }
 
-        private List<Member> members = new List<Member>();
-
+        //Methods (working)
         public void AddMember(Member member)
         {
-            members.Add(member);
+            _members.Add(member);
         }
 
         public List<Member> GetAll()
         {
-            return members;
+            return _members;
         }
 
         public void RemoveMember(Member member)
         {
-            members.Remove(member);
+            _members.Remove(member);
         }
 
         public Member GetMemberByName(string name)
         {
             if (name != null)
             {
-                return members.Find(m => m.Name == name);
+                return _members.Find(m => m.Name == name);
             }
             else
             {
@@ -60,7 +68,7 @@ namespace HillerødSejlKlub
         }
         public Member GetMemberById(int id)
         {
-            return members.Find(m => m.MemberId == id.ToString());
+            return _members.Find(m => m.MemberId == id.ToString());
         }
         public void UpdateMember(Member member, string name, int age, int phoneNumber, string email)
         {
