@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HillerødSejlKlub.HillerødSejlKlub;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,6 +22,12 @@ namespace HillerødSejlKlub
             Age = age;
             PhoneNumber = phoneNumber;
             Email = email;
+        }
+
+        public void CreateEvent(string name, string day, string description, DateTime date, bool requiresSignup, EventRepository eventRepository) 
+        { 
+            Event eventName = new Event(name, day, description, date, requiresSignup);
+            eventRepository.AddEvent(eventName);
         }
     }
 
