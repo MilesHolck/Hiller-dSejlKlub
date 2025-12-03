@@ -10,24 +10,17 @@ namespace HillerødSejlKlub
     {
         public class Event
         {
-            public string Name { get; set; }              // Navn på begivenheden
-            public string Description { get; set; }       // Beskrivelse
-            public string Day { get; set; }               // Ugedag (fx "Lørdag")
-            public DateTime Date { get; set; }            // Dato
+            public string Name { get; set; }          
+            public string Description { get; set; }      
+            public string Day { get; set; }            
+            public DateTime Date { get; set; }         
 
-            public bool RequiresSignup { get; set; }      // Kræver tilmelding?
-            public List<Member> Participants { get; set; } // Liste over tilmeldte
+            public bool RequiresSignup { get; set; }    
+            public List<Member> Participants { get; set; } 
 
             public Event()
             {
                 Participants = new List<Member>();
-            }
-
-            // Metode til at tilmelde et medlem
-            public void Signup(Member m)
-            {
-                if (!Participants.Contains(m))
-                    Participants.Add(m);
             }
         }
     }
