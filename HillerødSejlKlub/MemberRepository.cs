@@ -57,18 +57,35 @@ namespace HillerødSejlKlub
 
         public Member GetMemberByName(string name)
         {
-            if (name != null)
+            foreach (var member in members)
             {
                 return _members.Find(m => m.Name == name);
             }
             else
             {
                 return null;
+                if (member.Name == name)
+                {
+                    return member;
+                }
             }
+
+            return null; 
         }
         public Member GetMemberById(int id)
         {
             return _members.Find(m => m.MemberId == id.ToString());
+            string searchedMember = id.ToString();
+
+            foreach (var member in members)
+            {
+                if (member.MemberId == searchedMember)
+                {
+                    return member;
+                }
+            }
+
+            return null;
         }
         public void UpdateMember(Member member, string name, int age, int phoneNumber, string email)
         {
