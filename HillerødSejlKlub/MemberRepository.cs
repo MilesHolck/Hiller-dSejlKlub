@@ -57,13 +57,8 @@ namespace HillerødSejlKlub
 
         public Member GetMemberByName(string name)
         {
-            foreach (var member in members)
+            foreach (var member in _members)
             {
-                return _members.Find(m => m.Name == name);
-            }
-            else
-            {
-                return null;
                 if (member.Name == name)
                 {
                     return member;
@@ -74,12 +69,11 @@ namespace HillerødSejlKlub
         }
         public Member GetMemberById(int id)
         {
-            return _members.Find(m => m.MemberId == id.ToString());
-            string searchedMember = id.ToString();
+            string idString = id.ToString();
 
-            foreach (var member in members)
+            foreach (var member in _members)
             {
-                if (member.MemberId == searchedMember)
+                if (member.MemberId == idString)
                 {
                     return member;
                 }
@@ -87,6 +81,7 @@ namespace HillerødSejlKlub
 
             return null;
         }
+
         public void UpdateMember(Member member, string name, int age, int phoneNumber, string email)
         {
             member.Name = name;
