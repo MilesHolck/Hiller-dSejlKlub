@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HillerødSejlKlub
 {
-    class Boat
+    public class Boat
     {
 
         public Engine Engine { get; set; } 
