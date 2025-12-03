@@ -13,6 +13,8 @@ namespace HillerødSejlKlub
         public int Age { get; set; }
         public int PhoneNumber { get; set; }
         public string Email { get; set; }
+        
+        
         public Member(string memberId, string name, int age, int phoneNumber, string email) 
         { 
             MemberId = memberId;
