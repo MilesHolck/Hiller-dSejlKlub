@@ -10,11 +10,17 @@ namespace HillerødSejlKlub
     {
 
 
+        private List<Boat> _boatRepository;
+        
 
-     
+        public BoatRepository()
+        {
+            _boatRepository = new List<Boat>(); 
+        }
+
         public void Create()
         {
-            throw new NotImplementedException();
+          
         }
 
         public void Delete()

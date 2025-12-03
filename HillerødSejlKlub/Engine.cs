@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HillerødSejlKlub
 {
-    internal class Engine
+    public class Engine
     {
 
         public string Model { get; set; } 
