@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HillerødSejlKlub
 {
-    public interface IRepository
+    public interface IUserRepository
     {
 
         public void Create();
