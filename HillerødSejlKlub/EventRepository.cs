@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace HillerødSejlKlub
 {
-    public class EventRepository : IUserRepository 
+    public class EventRepository 
     {
         public EventRepository() 
         { 
