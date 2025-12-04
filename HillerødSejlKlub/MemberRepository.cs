@@ -65,7 +65,6 @@ namespace HillerødSejlKlub
             return _members.Count(); 
         }
 
-        //Methods (working)
         
       // IKKE EN DEL AF INTERFACE.. ENDNU? 
 
