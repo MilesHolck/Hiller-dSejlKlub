@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HillerødSejlKlub
 {
-    public class MemberRepository : IRepository
+    public class MemberRepository : IUserRepository
     {
         //Instance field
         private List<Member> _members; 
