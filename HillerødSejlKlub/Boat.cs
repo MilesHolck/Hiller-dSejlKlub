@@ -16,6 +16,7 @@ namespace HillerødSejlKlub
         public string SailNumber { get; set; }
         public string Measurements { get; set; }
         public int BuiltYear { get; set; }
+        public bool IsAvailable { get; set; }
 
         public Boat(Engine engine, string type, string model, string name, string sailNumber, string measurements, int builtYear)
         {
