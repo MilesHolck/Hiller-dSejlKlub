@@ -9,12 +9,16 @@ namespace HillerødSejlKlub
     public interface IUserRepository
     {
 
-        public void Create();
+        public string Add(User user);
 
-        public void Read();
+        public void GetAll();
 
-        public void Update();
+        public void Update(User user, string name, int age, int phoneNumber, string email);
 
-        public void Delete(); 
+        public string Delete(User user);
+
+        public User GetByName(string name);
+
+        public int Count(); 
     }
 }
