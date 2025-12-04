@@ -20,6 +20,10 @@ namespace HillerødSejlKlub
             Model = model;
             Brand = brand;
         }
+        public override string ToString()
+        {
+            return $"Engine: {name}, Model: {Model}, Brand: {Brand}, Fuel: {fuel}, Year Made: {yearMade}, Motor Info: {MotorOplysninger}";
+        }
 
     }
 }
