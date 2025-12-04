@@ -24,9 +24,9 @@ namespace HillerødSejlKlub
             Email = email;
         }
 
-        public void CreateEvent(string name, string day, string description, DateTime date, bool requiresSignup, EventRepository eventRepository) 
+        public void CreateEvent(string name, string description, DateTime date, bool requiresSignup, EventRepository eventRepository) 
         { 
-            Event eventName = new Event(name, day, description, date, requiresSignup);
+            Event eventName = new Event(name, description, date, requiresSignup);
             eventRepository.AddEvent(eventName);
         }
 
@@ -37,7 +37,6 @@ namespace HillerødSejlKlub
         public void UpdateEvent(Event eventToUpdate, string name, string day, string description, DateTime date, bool requiresSignup) 
         { 
             eventToUpdate.Name = name;
-            eventToUpdate.Day = day;
             eventToUpdate.Description = description;
             eventToUpdate.Date = date;
             eventToUpdate.RequiresSignup = requiresSignup;
