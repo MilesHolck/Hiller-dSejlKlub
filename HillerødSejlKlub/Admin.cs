@@ -34,7 +34,7 @@ namespace HillerødSejlKlub
         { 
             eventRepository.RemoveEvent(eventToDelete);
         } 
-        public void UpdateEvent(Event eventToUpdate, string name, string day, string description, DateTime date, bool requiresSignup) 
+        public void UpdateEvent(Event eventToUpdate, string name, string description, DateTime date, bool requiresSignup) 
         { 
             eventToUpdate.Name = name;
             eventToUpdate.Description = description;
