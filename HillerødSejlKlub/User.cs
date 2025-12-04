@@ -22,5 +22,9 @@ namespace HillerødSejlKlub
             PhoneNumber = phoneNumber;
             Email = email;
         }
+        public override string ToString()
+        {
+            return $"User: {Name}, Member ID: {MemberId}, Age: {Age}, Phone Number: {PhoneNumber}, Email: {Email}";
+        }
     }
 }

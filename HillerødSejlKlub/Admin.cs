@@ -46,6 +46,11 @@ namespace HillerødSejlKlub
         { 
             availableEvent.Participants.Add(member);
         } 
+        public override string ToString()
+        {
+            return $"Admin: {Name}, Member ID: {MemberId}, Age: {Age}, Phone Number: {PhoneNumber}, Email: {Email}";
+        }
+
     }
 
 }
