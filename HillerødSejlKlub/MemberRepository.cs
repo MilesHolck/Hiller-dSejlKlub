@@ -6,10 +6,19 @@ using System.Threading.Tasks;
 
 namespace HillerødSejlKlub
 {
-    public class MemberRepository : IRepository
+    public class MemberRepository : IUserRepository
     {
+        //Instance field
+        private List<Member> _members; 
+        
+        
+        //Constructor 
+        public MemberRepository()
+        {
+            _members = new List<Member>(); 
+        }
 
-
+        //Methods (Interface) NOT WORKING YET
         public void Create()
         {
             throw new NotImplementedException();
@@ -30,38 +39,49 @@ namespace HillerødSejlKlub
             throw new NotImplementedException();
         }
 
-        private List<Member> members = new List<Member>();
-
+        //Methods (working)
         public void AddMember(Member member)
         {
-            members.Add(member);
+            _members.Add(member);
         }
 
         public List<Member> GetAll()
         {
-            return members;
+            return _members;
         }
 
         public void RemoveMember(Member member)
         {
-            members.Remove(member);
+            _members.Remove(member);
         }
 
         public Member GetMemberByName(string name)
         {
-            if (name != null)
+            foreach (var member in _members)
             {
-                return members.Find(m => m.Name == name);
+                if (member.Name == name)
+                {
+                    return member;
+                }
             }
-            else
-            {
-                return null;
-            }
+
+            return null; 
         }
         public Member GetMemberById(int id)
         {
-            return members.Find(m => m.MemberId == id.ToString());
+            string idString = id.ToString();
+
+            foreach (var member in _members)
+            {
+                if (member.MemberId == idString)
+                {
+                    return member;
+                }
+            }
+
+            return null;
         }
+
         public void UpdateMember(Member member, string name, int age, int phoneNumber, string email)
         {
             member.Name = name;

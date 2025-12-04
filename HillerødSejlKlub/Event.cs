@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,7 +21,15 @@ namespace HillerødSejlKlub
 
             public Event()
             {
-                Participants = new List<Member>();
+                Participants = new List<Member>(); 
+            }
+            public Event(string name, string day, string description, DateTime date, bool requiresSignup) 
+            { 
+                Name = name;
+                Day = day;
+                Description = description;
+                Date = date;
+                RequiresSignup = requiresSignup;
             }
         }
     }

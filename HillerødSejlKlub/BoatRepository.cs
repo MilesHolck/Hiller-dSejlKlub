@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HillerødSejlKlub
 {
-    public class BoatRepository : IRepository
+    public class BoatRepository : IUserRepository
     {
 
 
@@ -37,5 +37,27 @@ namespace HillerødSejlKlub
         {
             throw new NotImplementedException();
         }
+
+        public Boat Add(Boat boat)
+        {
+            _boatRepository.Add(boat);
+            return boat; 
+        }
+
+        public void GetAll()
+        {
+            foreach(Boat boat in _boatRepository)
+            {
+                Console.WriteLine(boat);
+            }
+        }
+
+        public void Remove(Boat boat)
+        {
+            _boatRepository.Remove(boat);
+        }
+
+
+
     }
 }
