@@ -6,25 +6,21 @@ using System.Threading.Tasks;
 
 namespace HillerødSejlKlub
 {
-    public class Member : User
+    public abstract class User
     {
         public string MemberId { get; set; }
         public string Name { get; set; }
         public int Age { get; set; }
         public int PhoneNumber { get; set; }
         public string Email { get; set; }
-        
-        
-        public Member(string memberId, string name, int age, int phoneNumber, string email) : base(memberId, name, age, phoneNumber, email)
-        { 
+
+        public User(string memberId, string name, int age, int phoneNumber, string email)
+        {
             MemberId = memberId;
             Name = name;
             Age = age;
             PhoneNumber = phoneNumber;
             Email = email;
         }
-
-    } 
-
-
+    }
 }

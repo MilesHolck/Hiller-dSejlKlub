@@ -21,7 +21,7 @@ namespace HillerødSejlKlub
 
             public Event()
             {
-                Participants = new List<Member>();
+                Participants = new List<Member>(); 
             }
             public Event(string name, string day, string description, DateTime date, bool requiresSignup) 
             { 

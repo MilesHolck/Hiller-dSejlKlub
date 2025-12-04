@@ -38,5 +38,10 @@ namespace HillerødSejlKlub
         {
             throw new NotImplementedException();
         }
+
+        public void RemoveEvent(Event evnt)
+        {
+            events.Remove(evnt);
+        }
     }
 }
