@@ -9,9 +9,9 @@ namespace HillerødSejlKlub
 {
     public class Admin : User
     {
+        
 
-
-        public Admin(string memberId, string name, int age, int phoneNumber, string email) : base(memberId, name, age, phoneNumber, email)
+        public Admin(int memberId, string name, int age, int phoneNumber, string email) : base(memberId, name, age, phoneNumber, email)
         {
             MemberId = memberId;
             Name = name;

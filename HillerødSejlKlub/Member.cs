@@ -11,7 +11,7 @@ namespace HillerødSejlKlub
 
 
       
-        public Member(string memberId, string name, int age, int phoneNumber, string email) : base(memberId, name, age, phoneNumber, email)
+        public Member(int memberId, string name, int age, int phoneNumber, string email) : base(memberId, name, age, phoneNumber, email)
         { 
             MemberId = memberId;
             Name = name;
