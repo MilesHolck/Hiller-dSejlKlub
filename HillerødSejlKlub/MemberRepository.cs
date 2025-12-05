@@ -9,85 +9,81 @@ namespace HillerødSejlKlub
     public class MemberRepository : IUserRepository
     {
         //Instance field
-        private List<Member> _members; 
+        private List<User> _members; 
         
         
         //Constructor 
         public MemberRepository()
         {
-            _members = new List<Member>(); 
+            _members = new List<User>(); 
         }
 
-        //Methods (Interface) NOT WORKING YET
-        public void Create()
+        //Interface methods
+        public string Add(User user)
         {
-            throw new NotImplementedException();
+            _members.Add(user);
+            return $"{user} has been registered."; 
         }
 
-        public void Delete()
+        public void GetAll()
         {
-            throw new NotImplementedException();
-        }
-
-        public void Read()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Update()
-        {
-            throw new NotImplementedException();
-        }
-
-        //Methods (working)
-        public void AddMember(Member member)
-        {
-            _members.Add(member);
-        }
-
-        public List<Member> GetAll()
-        {
-            return _members;
-        }
-
-        public void RemoveMember(Member member)
-        {
-            _members.Remove(member);
-        }
-
-        public Member GetMemberByName(string name)
-        {
-            foreach (var member in _members)
+          foreach(User user in _members)
             {
-                if (member.Name == name)
-                {
-                    return member;
-                }
+                Console.WriteLine(user);
             }
-
-            return null; 
         }
-        public Member GetMemberById(int id)
-        {
-            string idString = id.ToString();
 
-            foreach (var member in _members)
+        public void Update(User user, string name, int age, int phoneNumber, string email)
+        {
+            user.Name = name;
+            user.Age = age;
+            user.PhoneNumber = phoneNumber;
+            user.Email = email;
+        }
+
+        public string Delete(User user)
+        {
+            _members.Remove(user);
+            return $"{user} has been removed."; 
+        }
+
+        public User GetByName(string name)
+        {
+            foreach (User user in _members)
             {
-                if (member.MemberId == idString)
+                if (user.Name == name)
                 {
-                    return member;
+                    return user;
                 }
             }
 
             return null;
         }
 
-        public void UpdateMember(Member member, string name, int age, int phoneNumber, string email)
+        public int Count()
         {
-            member.Name = name;
-            member.Age = age;
-            member.PhoneNumber = phoneNumber;
-            member.Email = email;
+            return _members.Count(); 
         }
+
+        
+      // IKKE EN DEL AF INTERFACE.. ENDNU? 
+
+
+        public User GetMemberById(int id)
+        {
+            string idString = id.ToString();
+
+            foreach (var user in _members)
+            {
+                if (user.MemberId.ToString() == idString)
+                {
+                    return user;
+                }
+            }
+
+            return null;
+        }
+
+       
     }
 }
