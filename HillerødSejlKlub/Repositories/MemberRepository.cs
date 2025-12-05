@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HillerødSejlKlub
+namespace HillerødSejlKlub.Repositories
 {
     public class MemberRepository : IUserRepository
     {
