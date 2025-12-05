@@ -12,9 +12,8 @@ namespace HillerødSejlKlub
     {
         
 
-        public Admin(int memberId, string name, int age, int phoneNumber, string email) : base(memberId, name, age, phoneNumber, email)
+        public Admin(string name, int age, int phoneNumber, string email) : base(name, age, phoneNumber, email)
         {
-            MemberId = memberId;
             Name = name;
             Age = age;
             PhoneNumber = phoneNumber;

@@ -11,7 +11,7 @@ namespace HillerødSejlKlub
     {
 
         private static int _nextMemberId = 0;
-        private int _memberId; 
+        private int _memberId;
 
         public int MemberId { get { return _memberId; } set { _memberId = value; } }
         public string Name { get; set; }
@@ -19,15 +19,14 @@ namespace HillerødSejlKlub
         public int PhoneNumber { get; set; }
         public string Email { get; set; }
 
-        public User(int memberId, string name, int age, int phoneNumber, string email)
+        public User(string name, int age, int phoneNumber, string email)
         {
-            MemberId = memberId;
             Name = name;
             Age = age;
             PhoneNumber = phoneNumber;
             Email = email;
 
-            _memberId = _nextMemberId++; 
+            _memberId = _nextMemberId++;
 
         }
         public override string ToString()
