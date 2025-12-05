@@ -17,6 +17,10 @@ namespace HillerødSejlKlub
         public string Measurements { get; set; }
         public int BuiltYear { get; set; }
         public bool IsAvailable { get; set; }
+        public DateTime BookedTimeAndDate { get; set; }
+
+        // Damagereport liste
+        public List<DamageRaport> DamageReports { get; set; } = new List<DamageRaport>();
 
         public Boat(Engine engine, string type, string model, string name, string sailNumber, string measurements, int builtYear)
         {
@@ -38,6 +42,12 @@ namespace HillerødSejlKlub
             Measurements = measurements;
             BuiltYear = builtYear; 
 
+        }
+
+        public void AddDamage(string description, string reportedBy)
+        {
+            var report = new DamageRaport(description, reportedBy);
+            DamageReports.Add(report);
         }
 
         public string VedligeholdelsesLog()
