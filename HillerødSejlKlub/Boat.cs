@@ -48,5 +48,10 @@ namespace HillerødSejlKlub
         {
             return "Skadesrapport for båden ";
         }
+
+        public override string ToString()
+        {
+            return $"Boat: {Name}, Type: {Type}, Model: {Model}, Sail Number: {SailNumber}, Measurements: {Measurements}, Built Year: {BuiltYear}, Is Available: {IsAvailable}, Engine: [{Engine}]";
+        }   
     }
 }

@@ -29,6 +29,11 @@ namespace HillerødSejlKlub
                 Date = date;
                 RequiresSignup = requiresSignup;
             }
+
+            public override string ToString()
+            {
+                return $"Event: {Name}, Day: {Day}, Description: {Description}, Date: {Date.ToString("d", CultureInfo.InvariantCulture)}, Requires Signup: {RequiresSignup}, Participants Count: {Participants.Count}";
+            }
         }
     }
 
