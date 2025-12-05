@@ -32,7 +32,7 @@ namespace HillerødSejlKlub
 
             public override string ToString()
             {
-                return $"Event: {Name}, Day: {Day}, Description: {Description}, Date: {Date.ToString("d", CultureInfo.InvariantCulture)}, Requires Signup: {RequiresSignup}, Participants Count: {Participants.Count}";
+                return $"Event: {Name}, Description: {Description}, Date: {Date.ToString("d", CultureInfo.InvariantCulture)}, Requires Signup: {RequiresSignup}, Participants Count: {Participants.Count}";
             }
         }
     }
