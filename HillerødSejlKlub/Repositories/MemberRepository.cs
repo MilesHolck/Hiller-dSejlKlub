@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HillerødSejlKlub
+namespace HillerødSejlKlub.Repositories
 {
     public class MemberRepository : IUserRepository
     {
@@ -75,7 +75,7 @@ namespace HillerødSejlKlub
 
             foreach (var user in _members)
             {
-                if (user.MemberId == idString)
+                if (user.MemberId.ToString() == idString)
                 {
                     return user;
                 }

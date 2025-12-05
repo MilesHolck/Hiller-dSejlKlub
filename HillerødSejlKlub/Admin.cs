@@ -1,4 +1,5 @@
 ﻿using HillerødSejlKlub.HillerødSejlKlub;
+using HillerødSejlKlub.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,6 +42,11 @@ namespace HillerødSejlKlub
         { 
             availableEvent.Participants.Add(member);
         } 
+        public override string ToString()
+        {
+            return $"Admin: {Name}, Member ID: {MemberId}, Age: {Age}, Phone Number: {PhoneNumber}, Email: {Email}";
+        }
+
     }
 
 }
