@@ -30,5 +30,9 @@ namespace HillerødSejlKlub
             _memberId = _nextMemberId++; 
 
         }
+        public override string ToString()
+        {
+            return $"User: {Name}, Member ID: {MemberId}, Age: {Age}, Phone Number: {PhoneNumber}, Email: {Email}";
+        }
     }
 }

@@ -45,23 +45,17 @@ namespace HillerødSejlKlub
                 Console.WriteLine("eftersøgning sat igang");
             }
 
-            else 
+            else
             {
                 Console.WriteLine("Båden er afleveret.");
             }
 
 
         }
-
-
-
-
-
-
-
-
-
-
+        public override string ToString()
+        {
+            return $"Booking: Member: [{_member}], Boat: [{_boat}], Is Returned: {IsReturned}, Destination: {Destination}, Start Hour: {StartHour}, End Hour: {EndHour}";
+        }
 
     }
 }

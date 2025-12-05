@@ -75,7 +75,7 @@ namespace HillerødSejlKlub
 
             foreach (var user in _members)
             {
-                if (user.MemberId == idString)
+                if (user.MemberId.ToString() == idString)
                 {
                     return user;
                 }
