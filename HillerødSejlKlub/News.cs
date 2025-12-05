@@ -13,6 +13,7 @@ namespace HillerødSejlKlub
         public string Description { get; set; }
         DateTime CreatedDate { get; set; }
         DateTime EventDate { get; set; }
+        public Event Event { get; set; }
         public News(string title, string description)
         {
             this.Title = title;
@@ -33,9 +34,10 @@ namespace HillerødSejlKlub
 
         public string ShowNews() 
         { 
-            return $"BREAKING!!\n Nyheder fra Hillerød Sejlklub\n" +
+            return $"BREAKING!!\nNyheder fra Hillerød Sejlklub\n" +
                 $"{Title}\n" +
-                $"{Description}";
+                $"{Description}\n" +
+                $"{Event.Date}";
         }
     }
 }
