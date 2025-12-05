@@ -34,7 +34,7 @@ namespace HillerødSejlKlub
 
         public string ShowNews() 
         { 
-            return $"BREAKING!!\n Nyheder fra Hillerød Sejlklub\n" +
+            return $"BREAKING!!\nNyheder fra Hillerød Sejlklub\n" +
                 $"{Title}\n" +
                 $"{Description}\n" +
                 $"{Event.Date}";
