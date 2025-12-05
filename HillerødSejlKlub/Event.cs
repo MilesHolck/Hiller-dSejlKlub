@@ -12,8 +12,7 @@ namespace HillerødSejlKlub
         public class Event
         {
             public string Name { get; set; }          
-            public string Description { get; set; }      
-            public string Day { get; set; }            
+            public string Description { get; set; }                  
             public DateTime Date { get; set; }         
 
             public bool RequiresSignup { get; set; }    
@@ -23,10 +22,9 @@ namespace HillerødSejlKlub
             {
                 Participants = new List<Member>(); 
             }
-            public Event(string name, string day, string description, DateTime date, bool requiresSignup) 
+            public Event(string name, string description, DateTime date, bool requiresSignup) 
             { 
                 Name = name;
-                Day = day;
                 Description = description;
                 Date = date;
                 RequiresSignup = requiresSignup;

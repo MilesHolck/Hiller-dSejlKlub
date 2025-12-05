@@ -10,13 +10,9 @@ namespace HillerødSejlKlub
 {
     public class Admin : User
     {
-        public string MemberId { get; set; }
-        public string Name { get; set; }
-        public int Age { get; set; }
-        public int PhoneNumber { get; set; }
-        public string Email { get; set; }
+        
 
-        public Admin(string memberId, string name, int age, int phoneNumber, string email) : base(memberId, name, age, phoneNumber, email)
+        public Admin(int memberId, string name, int age, int phoneNumber, string email) : base(memberId, name, age, phoneNumber, email)
         {
             MemberId = memberId;
             Name = name;
@@ -25,9 +21,9 @@ namespace HillerødSejlKlub
             Email = email;
         }
 
-        public void CreateEvent(string name, string day, string description, DateTime date, bool requiresSignup, EventRepository eventRepository) 
+        public void CreateEvent(string name, string description, DateTime date, bool requiresSignup, EventRepository eventRepository) 
         { 
-            Event eventName = new Event(name, day, description, date, requiresSignup);
+            Event eventName = new Event(name, description, date, requiresSignup);
             eventRepository.AddEvent(eventName);
         }
 
@@ -35,10 +31,9 @@ namespace HillerødSejlKlub
         { 
             eventRepository.RemoveEvent(eventToDelete);
         } 
-        public void UpdateEvent(Event eventToUpdate, string name, string day, string description, DateTime date, bool requiresSignup) 
+        public void UpdateEvent(Event eventToUpdate, string name, string description, DateTime date, bool requiresSignup) 
         { 
             eventToUpdate.Name = name;
-            eventToUpdate.Day = day;
             eventToUpdate.Description = description;
             eventToUpdate.Date = date;
             eventToUpdate.RequiresSignup = requiresSignup;

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HillerødSejlKlub.Repositories
 {
-    public class BoatRepository : IUserRepository
+    public class BoatRepository 
     {
 
 
