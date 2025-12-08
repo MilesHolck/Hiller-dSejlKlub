@@ -26,9 +26,12 @@ namespace HillerødSejlKlub
             ReportedBy = reportedBy;
             Status = "Indberettet";
         }
+        public override string ToString()
+        {
+            return $"Skadesrapport:\nDato: {Date}\nBeskrivelse: {Description}\nIndberettet af: {ReportedBy}\nStatus: {Status}";
+        }
+
     }
-
-
 
 
 }
