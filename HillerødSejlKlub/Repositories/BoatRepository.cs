@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HillerødSejlKlub.Repositories
 {
-    public class BoatRepository 
+    public class BoatRepository : IBoatRepository
     {
 
 
@@ -18,46 +18,51 @@ namespace HillerødSejlKlub.Repositories
             _boatRepository = new List<Boat>(); 
         }
 
-        public void Create()
-        {
-          
-        }
 
-        public void Delete()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Read()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Update()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Boat Add(Boat boat)
+        public void AddBoat(Boat boat)
         {
             _boatRepository.Add(boat);
-            return boat; 
+            Console.WriteLine(boat + "has been added to the list");
         }
-
         public void GetAll()
         {
             foreach(Boat boat in _boatRepository)
             {
-                Console.WriteLine(boat);
+                Console.Write(boat + ", ");
             }
         }
 
-        public void Remove(Boat boat)
+        public void Update(Boat boat)
         {
-            _boatRepository.Remove(boat);
+            throw new NotImplementedException();
         }
 
+        public void DeleteBoat(Boat boat)
+        {
+            
+            _boatRepository.Remove(boat);
+            Console.WriteLine(boat + "has been removed from the list."); 
+        }
 
+       
 
+        public Boat GetByNumber(string sailNumber)
+        {
+            foreach(Boat boat in _boatRepository)
+            {
+                if (sailNumber == boat.SailNumber)
+                {
+                    return boat;
+                }
+            }
+            return null; 
+        }
+
+        public int Count()
+        {
+            return _boatRepository.Count();
+        }
+
+        
     }
 }
