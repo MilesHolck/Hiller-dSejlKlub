@@ -61,7 +61,7 @@ namespace HillerødSejlKlub
         //_________________________________________________________
         public override string ToString()
         {
-            return $"Booking: Member: [{_member}], Boat: [{_boat}], Is Returned: {IsReturned}, Destination: {Destination}, Start Hour: {StartHour}, End Hour: {EndHour}";
+            return $"\nBooking: \nMember: [{_member}], \nBoat: [{_boat}], \nIs Returned: {IsReturned}, \nDestination: {Destination}, \nStart Hour: {StartHour}, \nEnd Hour: {EndHour}";
         }
 
     }
