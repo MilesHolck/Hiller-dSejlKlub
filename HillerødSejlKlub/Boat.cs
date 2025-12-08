@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HillerødSejlKlub.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -64,7 +65,7 @@ namespace HillerødSejlKlub
             return "Skadesrapport for båden ";
         }
 
-        //booking metode:_______________________________________________________
+        //booking metode C.R.U.D:_______________________________________________________
 
         public void AddBooking(Booking booking)
         {
@@ -81,6 +82,37 @@ namespace HillerødSejlKlub
             }
 
         }
+
+        public void DeleteBooking(Booking bookingDelete)
+        {
+            string dateKey = bookingDelete.DateTime.ToString("yyyy-MM-dd");
+
+            if (BookingsDictionary.ContainsKey(dateKey))
+            {
+                BookingsDictionary.Remove(dateKey);
+                Console.WriteLine("Deleted booking: " + bookingDelete.ToString());
+            }
+            else
+            {
+                Console.WriteLine("No booking found for this date: " + dateKey);
+            }
+        }
+
+        public void UpdateBooking(Booking updatedBooking)
+        {
+            string dateKey = updatedBooking.DateTime.ToString("yyyy-MM-dd");
+
+            if (BookingsDictionary.ContainsKey(dateKey))
+            {
+                BookingsDictionary[dateKey] = updatedBooking;
+                Console.WriteLine("Updated booking for date nad time: " + dateKey);
+            }
+            else
+            {
+                Console.WriteLine("No existing booking found for this date: " + dateKey);
+            }
+        }
+
 
         //metode slut____________________________________________________________
 
