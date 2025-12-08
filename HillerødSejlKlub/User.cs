@@ -10,7 +10,7 @@ namespace HillerødSejlKlub
     public abstract class User
     {
 
-        private static int _nextMemberId = 0;
+        private static int _nextMemberId = 1;
         private int _memberId;
 
         public int MemberId { get { return _memberId; } set { _memberId = value; } }
