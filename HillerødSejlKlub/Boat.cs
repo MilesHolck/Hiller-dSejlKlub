@@ -120,7 +120,7 @@ namespace HillerødSejlKlub
 
         public override string ToString()
         {
-            return $"\nBoat: {Name}, \nType: {Type}, \nModel: {Model}, \nSail Number: {SailNumber}, \nMeasurements: {Measurements}, \nBuilt \nYear: {BuiltYear}, \nIs Available: {IsAvailable}, \nEngine: [{Engine}]";
+            return $"\nBoat: {Name}, \nType: {Type}, \nModel: {Model}, \nSail Number: {SailNumber}, \nMeasurements: {Measurements}, \nBuilt Year: {BuiltYear}, \nIs Available: {IsAvailable}, \nEngine: {Engine}";
         }
     }
 }
