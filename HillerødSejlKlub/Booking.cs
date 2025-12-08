@@ -38,8 +38,7 @@ namespace HillerødSejlKlub
         {
             _user = user;
             _boat = boat;
-
-        }
+         }
 
         //ændret IsReturn til en void metode der printer status i stedet for at returnere en bool
         public void IsReturn(int currentHour)
