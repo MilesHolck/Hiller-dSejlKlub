@@ -11,16 +11,19 @@ namespace HillerødSejlKlub
     {
         public class Event
         {
+
+            //private List<User> _participants = new List<User>(); 
+
             public string Name { get; set; }          
             public string Description { get; set; }                  
             public DateTime Date { get; set; }         
 
             public bool RequiresSignup { get; set; }    
-            public List<Member> Participants { get; set; } 
+            public List<User> Participants { get; set; }
 
             public Event()
             {
-                Participants = new List<Member>(); 
+                Participants = new List<User>(); 
             }
             public Event(string name, string description, DateTime date, bool requiresSignup) 
             { 
@@ -28,11 +31,13 @@ namespace HillerødSejlKlub
                 Description = description;
                 Date = date;
                 RequiresSignup = requiresSignup;
+                Participants = new List<User>();
+
             }
 
             public override string ToString()
             {
-                return $"Event: {Name}, Description: {Description}, Date: {Date.ToString("d", CultureInfo.InvariantCulture)}, Requires Signup: {RequiresSignup}, Participants Count: {Participants.Count}";
+                return $"Event: {Name}, Description: {Description},  D. {Date.ToString()}, Requires Signup: {RequiresSignup}, Participants Count: {Participants.Count}";
             }
         }
     }

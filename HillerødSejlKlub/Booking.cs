@@ -8,10 +8,11 @@ namespace HillerødSejlKlub
 {
     public class Booking
     {
+        public int BookingId { get; } 
+        public DateTime DateTime { get; set; }
+
         private Member _member;
         private Boat _boat;
-
-
         public Member Member
         {
             get { return _member; }
@@ -38,20 +39,26 @@ namespace HillerødSejlKlub
 
         }
 
+        //ændret IsReturn til en void metode der printer status i stedet for at returnere en bool
         public void IsReturn(int currentHour)
         {
-            if (currentHour > EndHour && !IsReturned)
-            {
-                Console.WriteLine("eftersøgning sat igang");
-            }
-
-            else
-            {
+            if (IsReturned) 
+            { 
                 Console.WriteLine("Båden er afleveret.");
             }
-
-
+            else
+            {
+                if (currentHour > EndHour && !IsReturned)
+                {
+                    Console.WriteLine("eftersøgning sat igang");
+                }
+                else
+                {
+                    Console.WriteLine("Båden er ude på vandet :3");
+                }
+            }
         }
+        //_________________________________________________________
         public override string ToString()
         {
             return $"Booking: Member: [{_member}], Boat: [{_boat}], Is Returned: {IsReturned}, Destination: {Destination}, Start Hour: {StartHour}, End Hour: {EndHour}";
