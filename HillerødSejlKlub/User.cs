@@ -31,7 +31,7 @@ namespace HillerødSejlKlub
         }
         public override string ToString()
         {
-            return $"User: {Name}, Member ID: {MemberId}, Age: {Age}, Phone Number: {PhoneNumber}, Email: {Email}";
+            return $"\nUser: {Name}, \nMember ID: {MemberId}, \nAge: {Age}, \nPhone Number: {PhoneNumber}, \nEmail: {Email}";
         }
     }
 }
