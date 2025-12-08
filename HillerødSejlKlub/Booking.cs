@@ -38,8 +38,7 @@ namespace HillerødSejlKlub
         {
             _user = user;
             _boat = boat;
-
-        }
+         }
 
         //ændret IsReturn til en void metode der printer status i stedet for at returnere en bool
         public void IsReturn(int currentHour)
@@ -65,7 +64,7 @@ namespace HillerødSejlKlub
         //_________________________________________________________
         public override string ToString()
         {
-            return $"\nBooking: \nMember: [{_user}], \nBoat: [{_boat}], \nIs Returned: {IsReturned}, \nDestination: {Destination}, \nStart Hour: {StartHour}, \nEnd Hour: {EndHour}";
+            return $"\nBooking: \nMember: {_user}, \nBoat: {_boat}, \nIs Returned: {IsReturned}, \nDestination: {Destination}, \nStart Hour: {StartHour}, \nEnd Hour: {EndHour}";
         }
 
     }
