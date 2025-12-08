@@ -28,7 +28,7 @@ namespace HillerødSejlKlub.Repositories
         {
             foreach(Boat boat in _boatRepository)
             {
-                Console.Write(boat + ", ");
+                Console.Write(boat);
             }
         }
 
