@@ -1,4 +1,6 @@
-﻿using System;
+﻿using HillerødSejlKlub.HillerødSejlKlub;
+using HillerødSejlKlub.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,12 +13,12 @@ namespace HillerødSejlKlub
         public int BookingId { get; } 
         public DateTime DateTime { get; set; }
 
-        private Member _member;
+        private User _user;
         private Boat _boat;
-        public Member Member
+        public User user
         {
-            get { return _member; }
-            set { _member = value; }
+            get { return _user; }
+            set { _user = value; }
         }
 
         public Boat Boat
@@ -32,9 +34,9 @@ namespace HillerødSejlKlub
         public int EndHour { get; set; }
 
 
-        public Booking(Member member, Boat boat, bool bookedTime)
+        public Booking(User user, Boat boat, bool bookedTime)
         {
-            _member = member;
+            _user = user;
             _boat = boat;
 
         }
@@ -58,6 +60,8 @@ namespace HillerødSejlKlub
                 }
             }
         }
+
+       
         //_________________________________________________________
         public override string ToString()
         {
