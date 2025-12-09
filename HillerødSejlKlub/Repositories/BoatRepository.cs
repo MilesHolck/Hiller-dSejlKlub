@@ -11,51 +11,61 @@ namespace HillerødSejlKlub.Repositories
 
 
         private List<Boat> _boatRepository;
-        
+
 
         public BoatRepository()
         {
-            _boatRepository = new List<Boat>(); 
+            _boatRepository = new List<Boat>();
         }
 
 
         public void AddBoat(Boat boat)
         {
             _boatRepository.Add(boat);
-            Console.WriteLine(boat + "has been added to the list");
+            Console.WriteLine(boat.BoatName + " has been added to the list.");
         }
         public void GetAll()
         {
-            foreach(Boat boat in _boatRepository)
+            foreach (Boat boat in _boatRepository)
             {
-                Console.Write(boat + ", ");
+                Console.Write(boat);
             }
         }
 
-        public void Update(Boat boat)
+        public void Update(Boat boat, string type, string model, string boatName, string sailNumber, string measurements, int builtYear)
         {
-            throw new NotImplementedException();
+            boat.Type = type;
+            boat.Model = model;
+            boat.BoatName = boatName;
+            boat.SailNumber = sailNumber;
+            boat.Measurements = measurements;
+            boat.BuiltYear = builtYear; 
+
+            
         }
 
         public void DeleteBoat(Boat boat)
         {
-            
+
             _boatRepository.Remove(boat);
-            Console.WriteLine(boat + "has been removed from the list."); 
+            Console.WriteLine(boat + "has been removed from the list.");
+
+            //Hvad skal der ske, hvis båden ikke findes på listen?
         }
 
-       
+
 
         public Boat GetByNumber(string sailNumber)
         {
-            foreach(Boat boat in _boatRepository)
+            foreach (Boat boat in _boatRepository)
             {
                 if (sailNumber == boat.SailNumber)
                 {
                     return boat;
                 }
             }
-            return null; 
+           
+            return null; //Hvad skal der ske, hvis bådnummeret ikke findes? 
         }
 
         public int Count()
@@ -63,6 +73,17 @@ namespace HillerødSejlKlub.Repositories
             return _boatRepository.Count();
         }
 
-        
+        public void AddDamageReport(int boatIndex, string description, string reportedBy)
+        {
+            if (boatIndex >= 0 && boatIndex < _boatRepository.Count)
+            {
+                Boat boat = _boatRepository[boatIndex];
+                boat.AddDamage(description, reportedBy);
+            }
+            else
+            {
+                throw new IndexOutOfRangeException("Båden findes ikke.");
+            }
+        }
     }
 }
