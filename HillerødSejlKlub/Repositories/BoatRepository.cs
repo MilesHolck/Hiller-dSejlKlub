@@ -22,7 +22,7 @@ namespace HillerødSejlKlub.Repositories
         public void AddBoat(Boat boat)
         {
             _boatRepository.Add(boat);
-            Console.WriteLine(boat + "has been added to the list");
+            Console.WriteLine(boat.Name + " has been added to the list.");
         }
         public void GetAll()
         {
@@ -35,6 +35,8 @@ namespace HillerødSejlKlub.Repositories
         public void Update(Boat boat)
         {
             throw new NotImplementedException();
+
+            //Hvad stilles der op, ifht. de 2 forskellige constructors i båd? Har båden en engine eller ej?
         }
 
         public void DeleteBoat(Boat boat)
@@ -42,6 +44,8 @@ namespace HillerødSejlKlub.Repositories
             
             _boatRepository.Remove(boat);
             Console.WriteLine(boat + "has been removed from the list."); 
+
+            //Hvad skal der ske, hvis båden ikke findes på listen?
         }
 
        
@@ -55,7 +59,7 @@ namespace HillerødSejlKlub.Repositories
                     return boat;
                 }
             }
-            return null; 
+            return null; //Hvad skal der ske, hvis bådnummeret ikke findes? 
         }
 
         public int Count()
