@@ -29,6 +29,8 @@ namespace HillerødSejlKlub.Repositories
         public void RemoveEvent(Event eventToRemove)
         {
             _eventRepository.Remove(eventToRemove);
+
+            //Hvad skal der ske, hvis eventet ikke kan findes i listen? 
         }
 
         public void GetAll()
@@ -44,7 +46,9 @@ namespace HillerødSejlKlub.Repositories
             eventToUpdate.Name = name;
             eventToUpdate.Description = description;
             eventToUpdate.Date = date;
-            eventToUpdate.RequiresSignup = requiresSignup; 
+            eventToUpdate.RequiresSignup = requiresSignup;
+
+            Console.WriteLine($"Event information has been updated. \nName: {eventToUpdate.Name} \nDescription: {eventToUpdate.Description} \nDate: {eventToUpdate.Date} \nRequires signup: {eventToUpdate.RequiresSignup}"); 
         }
 
         public void Delete(Event eventToDelete)
@@ -58,7 +62,7 @@ namespace HillerødSejlKlub.Repositories
                 {
                     Console.WriteLine("Event not found"); 
                 }
-
+                //Test denne. Printer den "event not found" uanset om et event er blevet fjernet eller ej?
             }
 
         }
@@ -74,6 +78,8 @@ namespace HillerødSejlKlub.Repositories
                 }
             }
             return null; 
+
+            //Hvad skal der ske her? Hvis eventet ikke er fundet, bør der komme en besked op om dette. 
         }
 
 
