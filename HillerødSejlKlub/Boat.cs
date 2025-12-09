@@ -17,7 +17,7 @@ namespace HillerødSejlKlub
         public string SailNumber { get; set; }
         public string Measurements { get; set; }
         public int BuiltYear { get; set; }
-        
+           
         
 
         // Damagereport liste
@@ -48,7 +48,7 @@ namespace HillerødSejlKlub
 
        public void AddDamage(string description, User reportedBy)
         {
-          var report = new DamageReport(description, reportedBy);
+          DamageReport report = new DamageReport(description, reportedBy);
           DamageReports.Add(report);
         }
        

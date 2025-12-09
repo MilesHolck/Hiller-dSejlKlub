@@ -73,7 +73,7 @@ namespace HillerødSejlKlub.Repositories
             return _boatRepository.Count();
         }
 
-        public void AddDamageReport(int boatIndex, string description, string reportedBy)
+        public void AddDamageReport(int boatIndex, string description, User reportedBy)
         {
             if (boatIndex >= 0 && boatIndex < _boatRepository.Count)
             {
