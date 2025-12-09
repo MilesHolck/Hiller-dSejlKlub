@@ -32,9 +32,14 @@ namespace HillerødSejlKlub.Repositories
             }
         }
 
-        public void Update(Boat boat)
+        public void Update(Boat boat, string type, string model, string boatName, string sailNumber, string measurements, int builtYear)
         {
-            throw new NotImplementedException();
+            boat.Type = type;
+            boat.Model = model;
+            boat.BoatName = boatName;
+            boat.SailNumber = sailNumber;
+            boat.Measurements = measurements;
+            boat.BuiltYear = builtYear; 
 
             //Hvad stilles der op, ifht. de 2 forskellige constructors i båd? Har båden en engine eller ej?
         }

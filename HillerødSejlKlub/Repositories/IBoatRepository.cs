@@ -12,7 +12,7 @@ namespace HillerødSejlKlub.Repositories
 
         public void GetAll();
 
-        public void Update(Boat boat);
+        public void Update(Boat boat, string type, string model, string boatName, string sailNumber, string measurements, int builtYear);
 
         public void DeleteBoat(Boat boat);
 
