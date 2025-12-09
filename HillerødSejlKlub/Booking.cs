@@ -10,61 +10,91 @@ namespace HillerødSejlKlub
 {
     public class Booking
     {
-        public int BookingId { get; } 
-        public DateTime DateTime { get; set; }
+       
+        private static List<Booking> _bookings = new List<Booking>();
+        private static int _idcounter = 0;
 
-        private User _user;
-        private Boat _boat;
-        public User user
-        {
-            get { return _user; }
-            set { _user = value; }
-        }
-
-        public Boat Boat
-        {
-            get { return _boat; }
-            set { _boat = value; }
-        }
-        public bool IsReturned { get; set; }
-
+        public int Id { get; private set; }
+        public Boat Boat { get; set; }
+        public DateTime StartTime { get; set; }
+        public DateTime EndTime { get; set; }
+        public User User { get; set; }
+        public int NrParticipant { get; set; }
         public string Destination { get; set; }
 
-        public int StartHour { get; set; }
-        public int EndHour { get; set; }
 
-
-        public Booking(User user, Boat boat, bool bookedTime)
+        public Booking(Boat boat, DateTime startTime, DateTime endTime, User user, int nrParticipant, string destination)
         {
-            _user = user;
-            _boat = boat;
-         }
-
-        //ændret IsReturn til en void metode der printer status i stedet for at returnere en bool
-        public void IsReturn(int currentHour)
-        {
-            if (IsReturned) 
-            { 
-                Console.WriteLine("Båden er afleveret.");
+            _idcounter++;
+            Id = _idcounter;
+            Boat = boat;
+            StartTime = startTime;
+            EndTime = endTime;
+            User = user;
+            NrParticipant = nrParticipant;
+            Destination = destination;
+            if (CheckBookingDate(startTime, endTime, boat))
+            {
+                Console.WriteLine($"Your time is confirmed heres your Id - {Id}");
+                _bookings.Add(this);
             }
             else
             {
-                if (currentHour > EndHour && !IsReturned)
+                Console.WriteLine("The boat is not available in that time slot");
+            }
+        }
+     
+
+        private bool CheckBookingDate(DateTime start, DateTime end, Boat boat)
+        {
+            foreach (Booking booking in _bookings)
+            {
+                if (booking.Boat == boat)
                 {
-                    Console.WriteLine("eftersøgning sat igang");
+                    if (start < booking.EndTime && end > booking.StartTime)
+                    {
+                        return false;
+                    }
                 }
-                else
+            }
+            return true;
+        }
+
+
+        public void GetAll()
+        {
+            foreach (Booking booking in _bookings)
+            {
+                Console.WriteLine($"Booking id: {booking.Id}\nBoat: {booking.Boat.BoatName}\nStart: {booking.StartTime}, End: {booking.EndTime}\nUser: {booking.User.Name}\nParticipants: {booking.NrParticipant}\nDestination: {booking.Destination}");
+            }
+        }
+        public void SafeReturn(int id)
+        {
+            foreach (Booking booking in _bookings)
+            {
+                if (booking.Id == id)
                 {
-                    Console.WriteLine("Båden er ude på vandet :3");
+                    _bookings.Remove(booking);
+                    Console.WriteLine("Welcome back from the trip");
+                    return;
+                }
+            }
+            Console.WriteLine("Your booking could not be found");
+        }
+        public void BoatInTheWater(DateTime start, DateTime end)
+        {
+            foreach (Booking booking in _bookings)
+            {
+                if (start < booking.EndTime && end > booking.StartTime)
+                {
+                    Console.WriteLine($"{booking.Boat.BoatName} is in the water. Time slot {booking.StartTime} - {booking.EndTime}");
                 }
             }
         }
 
-       
-        //_________________________________________________________
         public override string ToString()
         {
-            return $"\nBooking: \nMember: {_user}, \nBoat: {_boat}, \nIs Returned: {IsReturned}, \nDestination: {Destination}, \nStart Hour: {StartHour}, \nEnd Hour: {EndHour}";
+            return $"\nBoat: {Boat} \nDestination: {Destination} \nStart Hour: {StartTime} \nEnd Hour: {EndTime}";
         }
 
     }

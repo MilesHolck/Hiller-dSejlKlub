@@ -22,7 +22,7 @@ namespace HillerødSejlKlub
         }
         public override string ToString()
         {
-            return $"\nEngine: {name}, \nModel: {Model}, \nBrand: {Brand}, \nFuel: {fuel}, \nYear Made: {yearMade}, \nMotor Info: {MotorOplysninger}";
+            return $"\nEngine: {name} \nModel: {Model} \nBrand: {Brand} \nFuel: {fuel} \nYear Made: {yearMade} \nMotor Info: {MotorOplysninger}";
         }
 
     }
