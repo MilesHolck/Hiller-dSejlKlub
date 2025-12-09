@@ -20,6 +20,9 @@ namespace HillerødSejlKlub
             Model = model;
             Brand = brand;
         }
+
+        public Engine() { }
+
         public override string ToString()
         {
             return $"\nEngine: {name} \nModel: {Model} \nBrand: {Brand} \nFuel: {fuel} \nYear Made: {yearMade} \nMotor Info: {MotorOplysninger}";
