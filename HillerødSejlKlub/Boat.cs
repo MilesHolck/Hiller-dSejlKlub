@@ -46,9 +46,9 @@ namespace HillerødSejlKlub
             
         }
 
-        public void AddDamage(string description, string reportedBy)
+        public void AddDamage(string description, User reportedBy)
         {
-            var report = new DamageRaport(description, reportedBy);
+            var report = new DamageReport(description, reportedBy);
             DamageReports.Add(report);
         }
 
