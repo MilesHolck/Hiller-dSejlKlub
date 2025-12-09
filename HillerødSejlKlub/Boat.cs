@@ -17,7 +17,7 @@ namespace HillerødSejlKlub
         public string SailNumber { get; set; }
         public string Measurements { get; set; }
         public int BuiltYear { get; set; }
-        public bool IsAvailable { get; set; }
+        
         
 
         // Damagereport liste
@@ -46,11 +46,11 @@ namespace HillerødSejlKlub
             
         }
 
-        public void AddDamage(string description, string reportedBy)
-        {
-            var report = new DamageRaport(description, reportedBy);
-            DamageReports.Add(report);
-        }
+        //public void AddDamage(string description, string reportedBy)
+        ////{
+        ////    var report = new DamageRaport(description, reportedBy);
+        ////    DamageReports.Add(report);
+        ////}
 
         public string VedligeholdelsesLog()
         {
@@ -64,7 +64,7 @@ namespace HillerødSejlKlub
         
         public override string ToString()
         {
-            return $"\nBoat: {BoatName} \nType: {Type} \nModel: {Model} \nSail Number: {SailNumber} \nMeasurements: {Measurements} \nBuilt Year: {BuiltYear} \nIs Available: {IsAvailable} \nEngine: {Engine}";
+            return $"\nBoat: {BoatName} \nType: {Type} \nModel: {Model} \nSail Number: {SailNumber} \nMeasurements: {Measurements} \nBuilt Year: {BuiltYear} \nEngine: {Engine}";
         }
     }
 }
