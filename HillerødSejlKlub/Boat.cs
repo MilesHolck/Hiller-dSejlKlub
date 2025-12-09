@@ -21,7 +21,7 @@ namespace HillerødSejlKlub
         
 
         // Damagereport liste
-        public List<DamageRaport> DamageReports { get; set; } = new List<DamageRaport>();
+        public List<DamageReport> DamageReports { get; set; } = new List<DamageReport>();
 
         public Boat(Engine engine, string type, string model, string name, string sailNumber, string measurements, int builtYear)
         {
