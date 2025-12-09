@@ -41,7 +41,7 @@ namespace HillerødSejlKlub.Repositories
             boat.Measurements = measurements;
             boat.BuiltYear = builtYear; 
 
-            //Hvad stilles der op, ifht. de 2 forskellige constructors i båd? Har båden en engine eller ej?
+            
         }
 
         public void DeleteBoat(Boat boat)
