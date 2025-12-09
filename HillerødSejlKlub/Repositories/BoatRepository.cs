@@ -63,17 +63,20 @@ namespace HillerødSejlKlub.Repositories
                 {
                     return boat;
                 }
-            }
-           
-            return null; //Hvad skal der ske, hvis bådnummeret ikke findes? 
+            } return null; 
         }
+            
+
+                
 
         public int Count()
         {
             return _boatRepository.Count();
         }
 
-        public void AddDamageReport(int boatIndex, string description, string reportedBy)
+
+
+        public void AddDamageReport(int boatIndex, string description, User reportedBy)
         {
             if (boatIndex >= 0 && boatIndex < _boatRepository.Count)
             {

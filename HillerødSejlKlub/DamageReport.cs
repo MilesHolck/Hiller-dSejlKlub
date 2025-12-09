@@ -28,7 +28,7 @@ namespace HillerødSejlKlub
         }
         public override string ToString()
         {
-            return $"Skadesrapport:\nDato: {Date}\nBeskrivelse: {Description}\nIndberettet af: {ReportedBy}\nStatus: {Status}";
+            return $"Skadesrapport:\nDato: {Date}\nBeskrivelse: {Description}\nIndberettet af: {ReportedBy.Name}\nStatus: {Status}";
         }
 
     }
