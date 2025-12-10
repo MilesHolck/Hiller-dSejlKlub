@@ -17,11 +17,11 @@ namespace HillerødSejlKlub
         public string SailNumber { get; set; }
         public string Measurements { get; set; }
         public int BuiltYear { get; set; }
-        
+           
         
 
         // Damagereport liste
-        public List<DamageRaport> DamageReports { get; set; } = new List<DamageRaport>();
+        public List<DamageReport> DamageReports { get; set; } = new List<DamageReport>();
 
         public Boat(Engine engine, string type, string model, string name, string sailNumber, string measurements, int builtYear)
         {
@@ -46,11 +46,12 @@ namespace HillerødSejlKlub
             
         }
 
-        public void AddDamage(string description, string reportedBy)
+       public void AddDamage(string description, User reportedBy)
         {
-            var report = new DamageRaport(description, reportedBy);
-            DamageReports.Add(report);
+          DamageReport report = new DamageReport(description, reportedBy);
+          DamageReports.Add(report);
         }
+       
 
         public string VedligeholdelsesLog()
         {
@@ -58,10 +59,17 @@ namespace HillerødSejlKlub
         }
         public string Skadesrapport()
         {
-            return "Skadesrapport for båden ";
+            if (DamageReports.Count == 0)
+                return $"Ingen skader på {BoatName}.";
+
+            string result = $"Skadesrapport for {BoatName}:\n";
+
+            foreach (var report in DamageReports)
+                result += $"- {report.Date}: {report.Description} (af {report.ReportedBy.Name})\n";
+
+            return result;
         }
 
-        
         public override string ToString()
         {
             return $"\nBoat: {BoatName} \nType: {Type} \nModel: {Model} \nSail Number: {SailNumber} \nMeasurements: {Measurements} \nBuilt Year: {BuiltYear} \nEngine: {Engine}";
