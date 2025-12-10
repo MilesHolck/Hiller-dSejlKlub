@@ -23,10 +23,11 @@ namespace HillerødSejlKlub
             Email = email;
         }
 
-        public void CreateEvent(string name, string description, DateTime date, bool requiresSignup, EventRepository eventRepository) 
+        public Event CreateEvent(string name, string description, DateTime date, bool requiresSignup, EventRepository eventRepository) 
         { 
-            Event eventName = new Event(name, description, date, requiresSignup);
+            Event eventName = new Event(name, description, date, requiresSignup);           
             eventRepository.AddEvent(eventName);
+            return eventName; 
         }
 
         public void DeleteEvent(Event eventToDelete, EventRepository eventRepository) 
