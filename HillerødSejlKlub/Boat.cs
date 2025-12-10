@@ -52,11 +52,6 @@ namespace HillerødSejlKlub
           DamageReports.Add(report);
         }
        
-        //public void AddDamage(string description, string reportedBy)
-        //{
-        //    var report = new DamageRaport(description, reportedBy);
-        //    DamageReports.Add(report);
-        //}
 
         public string VedligeholdelsesLog()
         {
