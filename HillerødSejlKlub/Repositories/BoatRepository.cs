@@ -88,5 +88,17 @@ namespace HillerødSejlKlub.Repositories
                 throw new IndexOutOfRangeException("Båden findes ikke.");
             }
         }
+        //public void AddDamageReport(int boatIndex, string description, string reportedBy)
+        //{
+        //    if (boatIndex >= 0 && boatIndex < _boatRepository.Count)
+        //    {
+        //        Boat boat = _boatRepository[boatIndex];
+        //        boat.AddDamage(description, reportedBy);
+        //    }
+        //    else
+        //    {
+        //        throw new IndexOutOfRangeException("Båden findes ikke.");
+        //    }
+        //}
     }
 }
