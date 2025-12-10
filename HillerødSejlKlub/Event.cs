@@ -51,7 +51,19 @@ namespace HillerødSejlKlub
                 }
                 return result;
             }
-        }
+
+            public string GetParticipantsByMemberID(int memberId) 
+            { 
+            foreach (User user in Participants) 
+                {
+                    if (user.MemberId == memberId) 
+                    {
+                        return user.ToString();
+                    }
+                }
+                return "No participant found with the given Member ID.";
+            }
+        } 
     }
 
 }
