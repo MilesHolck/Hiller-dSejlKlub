@@ -29,7 +29,7 @@ namespace HillerødSejlKlub.Repositories
         {
           foreach(User user in _members)
             {
-                Console.WriteLine(user);
+                Console.WriteLine(user.Name);
             }
         }
 
@@ -39,6 +39,7 @@ namespace HillerødSejlKlub.Repositories
             user.Age = age;
             user.PhoneNumber = phoneNumber;
             user.Email = email;
+
         }
 
         public string Delete(User user)
@@ -58,6 +59,8 @@ namespace HillerødSejlKlub.Repositories
             }
 
             return null;
+
+            //Hvad skal der ske, hvis useren ikke er fundet i listen?
         }
 
         public int Count()
@@ -73,7 +76,7 @@ namespace HillerødSejlKlub.Repositories
         {
             string idString = id.ToString();
 
-            foreach (var user in _members)
+            foreach (User user in _members)
             {
                 if (user.MemberId.ToString() == idString)
                 {

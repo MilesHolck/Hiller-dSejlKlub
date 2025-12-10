@@ -39,7 +39,31 @@ namespace HillerødSejlKlub
             {
                 return $"\nEvent: {Name} \nDescription: {Description}  \nD. {Date.ToString()} \nRequires Signup: {RequiresSignup} \nParticipants Count: {Participants.Count}";
             }
-        }
+
+            public string GetParticipantsInfo() 
+            {
+                string result = "Participants:\n";
+
+                for (int i = 0; i < Participants.Count; i++) 
+                {
+                    result = result + $"{i + 1}. {Participants[i].Name}\n";
+
+                }
+                return result;
+            }
+
+            public string GetParticipantsByMemberID(int memberId) 
+            { 
+            foreach (User user in Participants) 
+                {
+                    if (user.MemberId == memberId) 
+                    {
+                        return user.ToString();
+                    }
+                }
+                return "No participant found with the given Member ID.";
+            }
+        } 
     }
 
 }

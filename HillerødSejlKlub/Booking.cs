@@ -35,12 +35,12 @@ namespace HillerødSejlKlub
             Destination = destination;
             if (CheckBookingDate(startTime, endTime, boat))
             {
-                Console.WriteLine($"Your time is confirmed heres your Id - {Id}");
+                Console.WriteLine($"Bookingen er registreret. Din Booking ID is: {Id}");
                 _bookings.Add(this);
             }
             else
             {
-                Console.WriteLine("The boat is not available in that time slot");
+                Console.WriteLine("Båden er ikke tilgængelig");
             }
         }
      
@@ -75,11 +75,11 @@ namespace HillerødSejlKlub
                 if (booking.Id == id)
                 {
                     _bookings.Remove(booking);
-                    Console.WriteLine("Welcome back from the trip");
+                    Console.WriteLine("Båden er tilbage");
                     return;
                 }
             }
-            Console.WriteLine("Your booking could not be found");
+            Console.WriteLine("Bookingen kunne ikke findes.");
         }
         public void BoatInTheWater(DateTime start, DateTime end)
         {
@@ -87,14 +87,14 @@ namespace HillerødSejlKlub
             {
                 if (start < booking.EndTime && end > booking.StartTime)
                 {
-                    Console.WriteLine($"{booking.Boat.BoatName} is in the water. Time slot {booking.StartTime} - {booking.EndTime}");
+                    Console.WriteLine($"{booking.Boat.BoatName} er ude og sejle. Time slot {booking.StartTime} - {booking.EndTime}");
                 }
             }
-        }
+        }   
 
         public override string ToString()
         {
-            return $"\nBoat: {Boat} \nDestination: {Destination} \nStart Hour: {StartTime} \nEnd Hour: {EndTime}";
+            return $"\nDestination: {Destination} \nStart Hour: {StartTime} \nEnd Hour: {EndTime}";
         }
 
     }
