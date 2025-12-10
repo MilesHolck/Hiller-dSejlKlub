@@ -32,11 +32,16 @@ namespace HillerødSejlKlub.Repositories
             }
         }
 
-        public void Update(Boat boat)
+        public void Update(Boat boat, string type, string model, string boatName, string sailNumber, string measurements, int builtYear)
         {
-            throw new NotImplementedException();
+            boat.Type = type;
+            boat.Model = model;
+            boat.BoatName = boatName;
+            boat.SailNumber = sailNumber;
+            boat.Measurements = measurements;
+            boat.BuiltYear = builtYear; 
 
-            //Hvad stilles der op, ifht. de 2 forskellige constructors i båd? Har båden en engine eller ej?
+            
         }
 
         public void DeleteBoat(Boat boat)
@@ -58,16 +63,31 @@ namespace HillerødSejlKlub.Repositories
                 {
                     return boat;
                 }
-            }
-           
-            return null; //Hvad skal der ske, hvis bådnummeret ikke findes? 
+            } return null; 
         }
+            
+
+                
 
         public int Count()
         {
             return _boatRepository.Count();
         }
 
+
+
+        public void AddDamageReport(int boatIndex, string description, User reportedBy)
+        {
+            if (boatIndex >= 0 && boatIndex < _boatRepository.Count)
+            {
+                Boat boat = _boatRepository[boatIndex];
+                boat.AddDamage(description, reportedBy);
+            }
+            else
+            {
+                throw new IndexOutOfRangeException("Båden findes ikke.");
+            }
+        }
         //public void AddDamageReport(int boatIndex, string description, string reportedBy)
         //{
         //    if (boatIndex >= 0 && boatIndex < _boatRepository.Count)
