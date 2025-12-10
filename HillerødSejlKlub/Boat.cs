@@ -59,10 +59,17 @@ namespace HillerødSejlKlub
         }
         public string Skadesrapport()
         {
-            return "Skadesrapport for båden ";
+            if (DamageReports.Count == 0)
+                return $"Ingen skader på {BoatName}.";
+
+            string result = $"Skadesrapport for {BoatName}:\n";
+
+            foreach (var report in DamageReports)
+                result += $"- {report.Date}: {report.Description} (af {report.ReportedBy.Name})\n";
+
+            return result;
         }
 
-        
         public override string ToString()
         {
             return $"\nBoat: {BoatName} \nType: {Type} \nModel: {Model} \nSail Number: {SailNumber} \nMeasurements: {Measurements} \nBuilt Year: {BuiltYear} \nEngine: {Engine}";

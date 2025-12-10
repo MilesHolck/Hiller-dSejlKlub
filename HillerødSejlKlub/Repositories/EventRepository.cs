@@ -10,7 +10,7 @@ namespace HillerødSejlKlub.Repositories
     public class EventRepository : IEventRepository 
     { 
         //Instance field 
-        private List<Event> _eventRepository;
+        private static List<Event> _eventRepository;
 
         //Constructor
         public EventRepository() 
@@ -87,5 +87,18 @@ namespace HillerødSejlKlub.Repositories
         {
             return _eventRepository.Count(); 
         }
+
+        public override string ToString()
+        {
+            string result = "Her er en oversigt over dine events:\n";
+
+            foreach (var events in _eventRepository)
+            {
+                result = result + $"{events.ToString()}" + "\n";
+            }
+
+            return result;
+        }
+
     }
 }

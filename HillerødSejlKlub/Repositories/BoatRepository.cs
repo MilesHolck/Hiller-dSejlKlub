@@ -73,20 +73,28 @@ namespace HillerødSejlKlub.Repositories
         {
             return _boatRepository.Count();
         }
-
-
-
-        public void AddDamageReport(int boatIndex, string description, User reportedBy)
+        public void AddDamageReport(Boat boat, string description, User reportedBy)
         {
-            if (boatIndex >= 0 && boatIndex < _boatRepository.Count)
+            if (boat == null)
             {
-                Boat boat = _boatRepository[boatIndex];
-                boat.AddDamage(description, reportedBy);
+                Console.WriteLine("Boat not found.");
+                return;
             }
-            else
-            {
-                throw new IndexOutOfRangeException("Båden findes ikke.");
-            }
+
+            boat.AddDamage(description, reportedBy);
+            Console.WriteLine("Damage report added to boat " + boat.BoatName);
         }
+
+
+        public string GetBoatStatus(string sailNumber)
+        {
+            Boat boat = GetByNumber(sailNumber);
+
+            if (boat == null)
+                return "Båden blev ikke fundet.";
+
+            return boat.ToString() + "\n" + boat.Skadesrapport();
+        }
+      
     }
 }
