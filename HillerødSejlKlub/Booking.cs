@@ -10,8 +10,8 @@ namespace HillerødSejlKlub
 {
     public class Booking
     {
-       
-        private static List<Booking> _bookings = new List<Booking>();
+
+
         private static int _idcounter = 0;
 
         public int Id { get; private set; }
@@ -19,78 +19,47 @@ namespace HillerødSejlKlub
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
         public User User { get; set; }
-        public int NrParticipant { get; set; }
+        public int NumberParticipant { get; set; }
         public string Destination { get; set; }
+        public bool IsActive { get; private set; }
 
 
-        public Booking(Boat boat, DateTime startTime, DateTime endTime, User user, int nrParticipant, string destination)
+        public Booking(Boat boat, DateTime startTime, DateTime endTime, User user, int NumberParticipant, string destination)
         {
+            IsActive = true;
             _idcounter++;
             Id = _idcounter;
             Boat = boat;
             StartTime = startTime;
             EndTime = endTime;
             User = user;
-            NrParticipant = nrParticipant;
+            this.NumberParticipant = NumberParticipant;
             Destination = destination;
-            if (CheckBookingDate(startTime, endTime, boat))
+        }
+
+        public void StopBooking()
+        {
+            IsActive = false;
+        }
+
+
+        public void SearchforBoat(int currentTime)
+        {
+            if (currentTime > EndTime.Hour && IsActive)
             {
-                Console.WriteLine($"Bookingen er registreret. Din Booking ID is: {Id}");
-                _bookings.Add(this);
+                Console.WriteLine($"Båden {Boat.BoatName} er ikke returneret til korrekt tid. Der startes en eftersøgning");
+            }
+            else if (currentTime < EndTime.Hour && IsActive)
+            {
+                Console.WriteLine($"Båden {Boat.BoatName} er stadig ude og sejle");
             }
             else
             {
-                Console.WriteLine("Båden er ikke tilgængelig");
+                Console.WriteLine($"Båden {Boat.BoatName} er returneret til tiden");
             }
-        }
-     
-
-        private bool CheckBookingDate(DateTime start, DateTime end, Boat boat)
-        {
-            foreach (Booking booking in _bookings)
-            {
-                if (booking.Boat == boat)
-                {
-                    if (start < booking.EndTime && end > booking.StartTime)
-                    {
-                        return false;
-                    }
-                }
-            }
-            return true;
-        }
 
 
-        public void GetAll()
-        {
-            foreach (Booking booking in _bookings)
-            {
-                Console.WriteLine($"Booking id: {booking.Id}\nBoat: {booking.Boat.BoatName}\nStart: {booking.StartTime}, End: {booking.EndTime}\nUser: {booking.User.Name}\nParticipants: {booking.NrParticipant}\nDestination: {booking.Destination}");
-            }
         }
-        public void SafeReturn(int id)
-        {
-            foreach (Booking booking in _bookings)
-            {
-                if (booking.Id == id)
-                {
-                    _bookings.Remove(booking);
-                    Console.WriteLine("Båden er tilbage");
-                    return;
-                }
-            }
-            Console.WriteLine("Bookingen kunne ikke findes.");
-        }
-        public void BoatInTheWater(DateTime start, DateTime end)
-        {
-            foreach (Booking booking in _bookings)
-            {
-                if (start < booking.EndTime && end > booking.StartTime)
-                {
-                    Console.WriteLine($"{booking.Boat.BoatName} er ude og sejle. Time slot {booking.StartTime} - {booking.EndTime}");
-                }
-            }
-        }   
 
         public override string ToString()
         {
