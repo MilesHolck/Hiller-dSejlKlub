@@ -13,10 +13,10 @@ namespace HillerødSejlKlub.Repositories
         { 
         
         }
-        private List<Event> events = new List<Event>();
+        private List<Event> Events = new List<Event>();
         public void AddEvent(Event evnt)
         {
-            events.Add(evnt);
+            Events.Add(evnt);
         }
 
         public void Create()
@@ -41,7 +41,7 @@ namespace HillerødSejlKlub.Repositories
 
         public void RemoveEvent(Event evnt)
         {
-            events.Remove(evnt);
+            Events.Remove(evnt);
         }
     }
 }

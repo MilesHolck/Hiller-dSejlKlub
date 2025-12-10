@@ -12,7 +12,7 @@ namespace HillerødSejlKlub
 
         public string Description { get; set; }
 
-        public string ReportedBy { get; set; }
+        public string ReportedBy { get; set; } 
 
 
         public string Status { get; set; } = "Indberettet";
