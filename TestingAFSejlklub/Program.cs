@@ -63,6 +63,7 @@ Booking booking2 = new Booking(boat, new DateTime(2025, 11, 10, 15, 00, 00), new
 Console.WriteLine(booking2.ToString());
 
 booking.BoatInTheWater( new DateTime(2025, 11, 10, 15, 00, 00), new DateTime(2025, 11, 10, 18, 00, 00));
-
+Console.WriteLine(booking.Id);
+Console.WriteLine(booking2.Id);
 
 
