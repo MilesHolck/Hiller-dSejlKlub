@@ -24,7 +24,7 @@ namespace HillerødSejlKlub.Repositories
             _boatRepository.Add(boat);
             Console.WriteLine(boat.BoatName + " has been added to the list.");
         }
-        public void GetAll()
+        public void PrintAll()
         {
             foreach (Boat boat in _boatRepository)
             {
