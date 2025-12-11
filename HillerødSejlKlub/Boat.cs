@@ -53,10 +53,6 @@ namespace HillerødSejlKlub
         }
        
 
-        public string VedligeholdelsesLog()
-        {
-            return "Vedligeholdelseslog for båden ";
-        }
         public string Skadesrapport()
         {
             if (DamageReports.Count == 0)
