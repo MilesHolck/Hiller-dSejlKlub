@@ -11,7 +11,7 @@ namespace HillerødSejlKlub.Repositories
 
         public string Add(User user);
 
-        public void GetAll();
+        public void PrintAll();
 
         public void Update(User user, string name, int age, int phoneNumber, string email);
 

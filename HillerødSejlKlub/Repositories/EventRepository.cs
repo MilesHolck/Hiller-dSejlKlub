@@ -33,7 +33,7 @@ namespace HillerødSejlKlub.Repositories
             //Hvad skal der ske, hvis eventet ikke kan findes i listen? 
         }
 
-        public void GetAll()
+        public void PrintAll()
         {
          foreach(Event events in _eventRepository)
             {

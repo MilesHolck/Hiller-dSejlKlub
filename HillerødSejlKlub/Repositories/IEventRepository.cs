@@ -12,7 +12,7 @@ namespace HillerødSejlKlub.Repositories
 
         public void AddEvent(Event eventToAdd); 
 
-        public void GetAll();
+        public void PrintAll();
 
         public void UpdateEvent(Event eventToUpdate, string name, string description, DateTime date, bool requiresSignup);
 

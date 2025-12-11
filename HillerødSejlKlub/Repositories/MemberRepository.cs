@@ -25,7 +25,7 @@ namespace HillerødSejlKlub.Repositories
             return $"{user} has been registered."; 
         }
 
-        public void GetAll()
+        public void PrintAll()
         {
           foreach(User user in _members)
             {
