@@ -1,11 +1,12 @@
 ﻿using HillerødSejlKlub.HillerødSejlKlub;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HillerødSejlKlub
+namespace HillerødSejlKlub.Repositories
 {
     public class BookingReopsitory
     {
@@ -17,6 +18,19 @@ namespace HillerødSejlKlub
 
         }
 
+       
+        public Booking GetOne(int id)
+        {
+            foreach (Booking booking in _bookedBoats)
+            {
+                if (id == booking.Id)
+                {
+                    return booking;
+                }
+            }
+                throw new Exception("Booking not found");
+        }
+        
         public void GetAll()
         {
             foreach (Booking booking in _bookedBoats)
