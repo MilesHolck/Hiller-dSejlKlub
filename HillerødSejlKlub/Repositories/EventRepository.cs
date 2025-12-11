@@ -23,21 +23,17 @@ namespace HillerødSejlKlub.Repositories
 
         public void AddEvent(Event eventToAdd)
         {
-            _eventRepository.Add(eventToAdd); 
+            _eventRepository.Add(eventToAdd);
+            Console.WriteLine($"The event {eventToAdd.Name} has been added to the list."); 
         }
 
-        public void RemoveEvent(Event eventToRemove)
-        {
-            _eventRepository.Remove(eventToRemove);
-
-            //Hvad skal der ske, hvis eventet ikke kan findes i listen? 
-        }
+      
 
         public void PrintAll()
         {
          foreach(Event events in _eventRepository)
             {
-                Console.WriteLine(events); 
+                Console.WriteLine(events.Name);
             }
         }
 
@@ -51,33 +47,34 @@ namespace HillerødSejlKlub.Repositories
             Console.WriteLine($"Event information has been updated. \nName: {eventToUpdate.Name} \nDescription: {eventToUpdate.Description} \nDate: {eventToUpdate.Date} \nRequires signup: {eventToUpdate.RequiresSignup}"); 
         }
 
-        public void Delete(Event eventToDelete)
+        public void DeleteEvent(Event eventToDelete)
         {
-         foreach(Event events in _eventRepository)
-            {
-                if(events.Name == eventToDelete.Name)
+
+            if(_eventRepository.Contains(eventToDelete))
                 {
-                    _eventRepository.Remove(eventToDelete); 
-                } else
+                 _eventRepository.Remove(eventToDelete);
+                 Console.WriteLine($"The event {eventToDelete.Name} has been removed from the list."); 
+
+                }else
                 {
-                    Console.WriteLine("Event not found"); 
+                    Console.WriteLine("Event not found");
                 }
                 //Test denne. Printer den "event not found" uanset om et event er blevet fjernet eller ej?
             }
 
-        }
+        
 
-        public Event GetByName(string name)
+        public string GetByName(string name)
         {
             foreach (Event events in _eventRepository)
             {
                 if (events.Name == name)
                 {
-                    return events;
+                    return events.ToString(); 
 
                 }
             }
-            return null; 
+            return "Event not found"; 
 
             //Hvad skal der ske her? Hvis eventet ikke er fundet, bør der komme en besked op om dette. 
         }
@@ -90,14 +87,14 @@ namespace HillerødSejlKlub.Repositories
 
         public override string ToString()
         {
-            string result = "Her er en oversigt over dine events:\n";
+            string result = $"Her er en oversigt over dine events:\n";
 
             foreach (var events in _eventRepository)
             {
-                result = result + $"{events.ToString()}" + "\n";
-            }
+                result = result + events.ToString() + "\n"; 
+                
+            } return result; 
 
-            return result;
         }
 
     }
