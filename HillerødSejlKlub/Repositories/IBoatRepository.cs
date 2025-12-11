@@ -16,7 +16,7 @@ namespace HillerødSejlKlub.Repositories
 
         public void DeleteBoat(Boat boat);
 
-        public Boat GetByNumber(string sailNumber);
+        public string GetByNumber(string sailNumber);
 
         public int Count();
 

@@ -28,7 +28,7 @@ namespace HillerødSejlKlub.Repositories
         {
             foreach (Boat boat in _boatRepository)
             {
-                Console.Write(boat);
+                Console.WriteLine(boat.BoatName);
             }
         }
 
@@ -39,40 +39,55 @@ namespace HillerødSejlKlub.Repositories
             boat.BoatName = boatName;
             boat.SailNumber = sailNumber;
             boat.Measurements = measurements;
-            boat.BuiltYear = builtYear; 
+            boat.BuiltYear = builtYear;
 
-            
+            Console.WriteLine("Boat details have been updated: " + boat); 
         }
 
         public void DeleteBoat(Boat boat)
         {
+            for(int i = 0; i < _boatRepository.Count(); i++) 
+            {
+                if(_boatRepository.Contains(boat))
+                { 
 
-            _boatRepository.Remove(boat);
-            Console.WriteLine(boat + "has been removed from the list.");
+                    _boatRepository.Remove(boat);
 
-            //Hvad skal der ske, hvis båden ikke findes på listen?
+                    Console.WriteLine(boat.BoatName + " has been removed from the list.");
+                    break;
+
+                } else
+                {
+                    Console.WriteLine("Boat not found on the list.");
+                    break;
+                }
+
+            }
         }
+        
 
 
 
-        public Boat GetByNumber(string sailNumber)
+        public string GetByNumber(string sailNumber)
         {
             foreach (Boat boat in _boatRepository)
             {
                 if (sailNumber == boat.SailNumber)
                 {
-                    return boat;
+                    return $"Boat info: {boat}"; 
                 }
-            } return null; 
+
+            }
+            return $"Boat with sail number {sailNumber} has not been found.";
         }
             
 
-                
-
+          
         public int Count()
         {
             return _boatRepository.Count();
         }
+
         public void AddDamageReport(Boat boat, string description, User reportedBy)
         {
             if (boat == null)
@@ -90,6 +105,19 @@ namespace HillerødSejlKlub.Repositories
                 return "Båden blev ikke fundet.";
 
             return boat.ToString() + "\n" + boat.Skadesrapport();
+        }
+
+        public override string ToString()
+        {
+            string result = $"Her er en oversigt over alle både:\n";
+
+            foreach (Boat boats in _boatRepository)
+            {
+                result = result + boats.ToString() + "\n";
+
+            }
+            return result;
+
         }
 
     }

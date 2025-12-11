@@ -32,7 +32,7 @@ namespace HillerødSejlKlub
 
         public void DeleteEvent(Event eventToDelete, EventRepository eventRepository) 
         { 
-            eventRepository.RemoveEvent(eventToDelete);
+            eventRepository.DeleteEvent(eventToDelete);
         } 
         public void UpdateEvent(Event eventToUpdate, string name, string description, DateTime date, bool requiresSignup) 
         { 

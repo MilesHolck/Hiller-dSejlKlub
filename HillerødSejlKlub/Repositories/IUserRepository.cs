@@ -9,15 +9,15 @@ namespace HillerødSejlKlub.Repositories
     public interface IUserRepository
     {
 
-        public string Add(User user);
+        public void Add(User user);
 
         public void PrintAll();
 
         public void Update(User user, string name, int age, int phoneNumber, string email);
 
-        public string Delete(User user);
+        public void Delete(User user);
 
-        public User GetByName(string name);
+        public string GetByName(string name);
 
         public int Count(); 
     }
