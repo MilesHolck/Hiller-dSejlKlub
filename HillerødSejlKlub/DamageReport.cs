@@ -30,6 +30,25 @@ namespace HillerødSejlKlub
         {
             return $"Skadesrapport:\nDato: {Date}\nBeskrivelse: {Description}\nIndberettet af: {ReportedBy.Name}\nStatus: {Status}";
         }
+        public void AddDamageReport(Boat boat, string description, User reportedBy)
+        {
+            if (boat == null)
+            {
+                Console.WriteLine("Boat not found.");
+                return;
+            }
+
+            boat.AddDamage(description, reportedBy);
+            Console.WriteLine("Damage report added to boat " + boat.BoatName);
+        }
+        public string GetBoatStatus(Boat boat)
+        {
+            if (boat == null)
+                return "Båden blev ikke fundet.";
+
+            return boat.Skadesrapport();
+        }
+
 
     }
 
