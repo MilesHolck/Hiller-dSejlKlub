@@ -3,6 +3,11 @@ using HillerødSejlKlub;
 using HillerødSejlKlub.HillerødSejlKlub;
 using HillerødSejlKlub.Repositories;
 
+//test af båd
+Boat Wiebke = new Boat("Sejlbåd", "Skonnert", "Wiebke", "25", "20 ft l ft W", 1990);
+Boat Bohlen = new Boat("Motorbåd", "Yacht", "Bohlen", "45", "40 ft l ft W", 2010);
+
+Console.WriteLine(Wiebke.ToString());
 /*
 Console.WriteLine("----TEST AF EVENT OG METODER ------");
 
@@ -315,6 +320,30 @@ admin1.UpdateEvent(event1, "turnering", "1. Fredags Sejlads", new DateTime(2029,
 Console.WriteLine(event1.ToString());
 Console.WriteLine("\n");
 */
+
+
+
+//Test af booking system 
+Console.WriteLine("__________Booking Test__________");
+
+Booking booking1 = new Booking (Wiebke, new DateTime(2025, 12, 12, 10, 00, 00), new DateTime(2025, 12, 12, 15, 00, 00), user1, 4, "Hillerød");
+Booking booking2 = new Booking (Bohlen, new DateTime(2025, 12, 21, 10, 00, 00), new DateTime(2025, 12, 21, 15, 00, 00), user2, 2, "Frederikssund");
+Console.WriteLine(booking1.ToString());
+Console.WriteLine(booking2.ToString());
+
+// Test af Booking Repository
+Console.WriteLine("________BookingRepo Test________");
+BookingRepository repository = new BookingRepository(); //opretter et repository objekt
+
+booking1.SearchforBoat(DateTime.Now);  
+booking2.SearchforBoat(DateTime.Now);
+
+booking1.StopBooking(); //stopper booking 1
+
+
+
+
+
 
 
 

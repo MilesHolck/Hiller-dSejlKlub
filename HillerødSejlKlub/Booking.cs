@@ -45,6 +45,21 @@ namespace HillerødSejlKlub
         }
 
 
+       public void SearchforBoat(DateTime currentTime) //skal refactores pga strid mellem DateTime og Current time. 
+{
+    if (currentTime > EndTime && IsActive)
+    {
+        Console.WriteLine($"Båden {Boat.BoatName} er ikke returneret til korrekt tid");
+    }
+    else if (currentTime < EndTime && IsActive)
+    {
+        Console.WriteLine($"Båden {Boat.BoatName} er stadig ude og sejle");
+    }
+    else
+    {
+        Console.WriteLine($"Båden {Boat.BoatName} er returneret til tiden");
+    }
+}
         public void SearchforBoat(int currentTime)
         {
             if (currentTime > EndTime.Hour && IsActive)
@@ -61,7 +76,6 @@ namespace HillerødSejlKlub
             }
 
 
-        }
 
         public override string ToString()
         {
