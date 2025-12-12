@@ -59,7 +59,7 @@ namespace HillerødSejlKlub.Repositories
                 {
                     Console.WriteLine("Event not found");
                 }
-                //Test denne. Printer den "event not found" uanset om et event er blevet fjernet eller ej?
+               
             }
 
         
@@ -76,7 +76,7 @@ namespace HillerødSejlKlub.Repositories
             }
             return "Event not found"; 
 
-            //Hvad skal der ske her? Hvis eventet ikke er fundet, bør der komme en besked op om dette. 
+           
         }
 
 

@@ -3,7 +3,7 @@ using HillerødSejlKlub;
 using HillerødSejlKlub.HillerødSejlKlub;
 using HillerødSejlKlub.Repositories;
 
-
+/*
 Console.WriteLine("----TEST AF EVENT OG METODER ------");
 
 Event event1 = new Event("Middag", "Mad", new DateTime(2025, 12, 13, 14, 30, 00), false);
@@ -40,6 +40,7 @@ Console.WriteLine(news1.ShowNews());
 News news2 = new News("Vi holder sommerfest", "Og andre spændende arrengementer hele sæsonen!", event1);
 
 Console.WriteLine(news2.ShowNews());
+*/
 
 
 /*
@@ -183,14 +184,16 @@ Console.WriteLine(eventRepo.ToString());
 
 */
 
-/*
+
 
 //TEST AF BOAT REPO
-Boat boat1 = new Boat("Sejlbåd", "Skonnert", "Wiebke", "25", "20 ft l ft W", 1990);
 
-Boat boat2 = new Boat("EnBådType", "EnModel", "EtNavn", "Et SejlNummer", "Nogle mål", 1999);
 
-Boat boat3 = new Boat("Endnu en bådtype", "endnu en model", "endnu et navn", "endnu et sejlNummer", "flere mål", 1855);
+Boat boat1 = new Boat("Sejlbåd", "Skonnert", "Wiebke", 09, "20 ft l ft W", 1990);
+
+Boat boat2 = new Boat("EnBådType", "EnModel", "EtNavn", 40, "Nogle mål", 1999);
+
+Boat boat3 = new Boat("Endnu en bådtype", "endnu en model", "endnu et navn", 10, "flere mål", 1855);
 
 Member Ida = new Member("Ida", 33, 22222222, "hallo@ida.dk");
 
@@ -202,22 +205,21 @@ boatRepo.AddBoat(boat2);
 
 boatRepo.PrintAll();
 
-boatRepo.Update(boat2, "Sejlbåd", "Skonnert", "Sif", "42", "30 ft, 20 ft, 10 ft", 1999);
+boatRepo.Update(boat2, "Sejlbåd", "Skonnert", "Sif", 42, "30 ft, 20 ft, 10 ft", 1999);
 
-Console.WriteLine("PrintAll after updating boat2: ");
+boatRepo.DeleteBoat(boat1);
+
 boatRepo.PrintAll();
+boatRepo.AddBoat(boat1);
+boatRepo.AddBoat(boat3);
 
-Console.WriteLine(boatRepo.GetByNumber("33"));
+Console.WriteLine("--------TEST AF FIND BY NUMBER------");
 
-boatRepo.AddDamageReport(boat1, "Av i lakken", Ida);
+Console.WriteLine(boatRepo.GetByNumber(777)); 
 
-boatRepo.AddDamageReport(boat1, "øv øv øv i skroget", Ida);
 
-Console.WriteLine(boatRepo.GetBoatStatus(boat1));
 
-Console.WriteLine(boatRepo.ToString()); 
 
-*/
 
 
 
