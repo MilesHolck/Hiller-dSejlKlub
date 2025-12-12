@@ -11,9 +11,6 @@ namespace HillerødSejlKlub
     public class Admin : User
     {
         
-        public Event SomeEvent { get; set; }
-
-        public User SomeUser { get; set; }
 
         public Admin(string name, int age, int phoneNumber, string email) : base(name, age, phoneNumber, email)
         {
@@ -43,7 +40,7 @@ namespace HillerødSejlKlub
         }  
         public void AddEventParticipant(Event availableEvent, User user) 
         {
-            SomeEvent = availableEvent; 
+           
             availableEvent.Participants.Add(user); 
         } 
         public override string ToString()
