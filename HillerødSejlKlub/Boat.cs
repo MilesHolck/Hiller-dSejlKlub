@@ -17,10 +17,6 @@ namespace HillerødSejlKlub
         public string SailNumber { get; set; }
         public string Measurements { get; set; }
         public int BuiltYear { get; set; }
-           
-        
-
-        // Damagereport liste
         public List<DamageReport> DamageReports { get; set; } = new List<DamageReport>();
 
         public Boat(Engine engine, string type, string model, string name, string sailNumber, string measurements, int builtYear)
@@ -46,10 +42,11 @@ namespace HillerødSejlKlub
             
         }
 
-       public void AddDamage(string description, User reportedBy)
+       public string AddDamage(string description, User reportedBy)
         {
           DamageReport report = new DamageReport(description, reportedBy);
           DamageReports.Add(report);
+            return $"Damage report added to boat {BoatName}:\n{report.ToString()}";
         }
        
 

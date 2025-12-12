@@ -13,7 +13,7 @@ namespace HillerødSejlKlub
         private static int _nextMemberId = 1;
         private int _memberId;
 
-        public int MemberId { get { return _memberId; } set { _memberId = value; } }
+        public int MemberId { get { return _memberId; } }
         public string Name { get; set; }
         public int Age { get; set; }
         public int PhoneNumber { get; set; }
@@ -29,9 +29,9 @@ namespace HillerødSejlKlub
             _memberId = _nextMemberId++;
 
         }
-        public override string ToString()
-        {
-            return $"\nUser: {Name} \nMember ID: {MemberId} \nAge: {Age} \nPhone Number: {PhoneNumber} \nEmail: {Email}";
-        }
+        //public override string ToString()
+        //{
+        //    return $"\nUser: {Name} \nMember ID: {MemberId} \nAge: {Age} \nPhone Number: {PhoneNumber} \nEmail: {Email}";
+        //}
     }
 }
