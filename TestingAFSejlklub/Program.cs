@@ -3,6 +3,138 @@ using HillerødSejlKlub;
 using HillerødSejlKlub.HillerødSejlKlub;
 using HillerødSejlKlub.Repositories;
 
+
+Console.WriteLine("----TEST AF EVENT OG METODER ------");
+
+Event event1 = new Event("Middag", "Mad", new DateTime(2025, 12, 13, 14, 30, 00), false);
+
+Console.WriteLine(event1.ToString());
+
+
+Member member1 = new Member("Sally", 30, 12334232, "sally.com");
+
+Member member2 = new Member("Bob", 12, 377895639, "email");
+
+
+Admin admin1 = new Admin("Bobby", 12, 22222222, "yahoo@gmail.com");
+
+Admin admin2 = new Admin("Johanne", 22, 47433285, "noget@noget.dk");
+
+admin1.AddEventParticipant(event1, member1);
+admin1.AddEventParticipant(event1, member2);
+
+Console.WriteLine(event1.ToString());
+
+Console.WriteLine(event1.GetParticipantsInfo());
+
+Console.WriteLine(event1.GetParticipantsByMemberID(3));
+
+Console.WriteLine(member2.ToString());
+
+Console.WriteLine("--------TEST AF NEWS--------");
+
+News news1 = new News("Broen skal op", "Vi hiver den bro op");
+
+Console.WriteLine(news1.ShowNews());
+
+News news2 = new News("Vi holder sommerfest", "Og andre spændende arrengementer hele sæsonen!", event1);
+
+Console.WriteLine(news2.ShowNews());
+
+
+/*
+
+//TEST AF BOAT OG METODER. 
+
+Boat boat1 = new Boat("En type af båd", "Også en model", "Going Merry", "55", "Nogle mål", 1922);
+
+Boat boat2 = new Boat("Vi skal bruge en string her", "Modellos", "NOGET MED STORT", "42", "mål, mål, mål", 2005);
+
+Boat boat3 = new Boat("Sejlbåd", "Flot model", "noget laaaaaaaaaaaaaaaangt", "12", "flere mål og flere mål", 2020);
+
+Member member1 = new Member("Sally", 30, 12334232, "sally.com");
+
+Member member2 = new Member("Bob", 12, 377895639, "email"); 
+
+//boat1.AddDamage("hul i masten", member1);
+
+Console.WriteLine(boat1.Skadesrapport());
+
+string damRepo2 = boat1.AddDamage("Rids i lakken", member1);
+
+Console.WriteLine(boat1.Skadesrapport());
+
+Console.WriteLine(boat1); 
+
+Console.WriteLine("-----------------TEST AF BOOKING-------------------");
+
+Booking booking1 = new Booking(boat1, new DateTime(2025, 12, 12, 12, 00, 00), new DateTime(2025, 12, 12, 14, 00, 00), member1, 1, "Møn");
+
+Booking booking2 = new Booking(boat1, new DateTime(2025, 12, 12, 12, 00, 00), new DateTime(2025, 12, 12, 14, 00, 00), member2, 1, "Ærø");
+
+booking1.SearchforBoat(11);
+
+booking1.StopBooking();
+
+booking1.SearchforBoat(15);
+
+Console.WriteLine(booking2.ToString());
+
+Console.WriteLine("-------------TEST AF DAMAGE REPORT-------------");
+
+DamageReport damrepo1 = new DamageReport("Et eller andet", member2);
+
+Console.WriteLine(boat1.Skadesrapport());
+
+Console.WriteLine(damRepo2.ToString());
+
+Engine eng1 = new Engine("v12", "BOAT");
+
+Console.WriteLine(eng1.ToString());
+
+Engine eng2 = new Engine();
+
+Console.WriteLine(eng2.ToString()); 
+*/
+
+
+
+//TEST AF ADMIN OG METODER.
+/*
+
+Admin admin1 = new Admin("Bobby", 12, 22222222, "yahoo@gmail.com");
+
+Admin admin2 = new Admin("Sally", 22, 47433285, "noget@noget.dk");
+
+EventRepository eventRepo = new EventRepository();
+
+Event event1 = admin1.CreateEvent("Kapsejlads", "Noget med kap og sejlads", new DateTime(2025, 12, 12, 20, 30, 00), true, eventRepo);
+
+Console.WriteLine(event1);
+
+admin1.AddEventParticipant(event1, admin2);
+
+Console.WriteLine(event1);
+
+admin1.UpdateEvent(event1, "Parsejlads", "Noget med par og sejlads", new DateTime(2025, 12, 13, 19, 00, 00), false);
+
+Console.WriteLine(event1);
+
+admin1.DeleteEvent(event1, eventRepo);
+
+Console.WriteLine(eventRepo);
+
+Console.WriteLine(admin1.ToString());
+
+
+Console.WriteLine(admin1.ToString());
+
+MemberRepository memberRepo = new MemberRepository();
+
+*/
+
+
+
 //TEST AF EVENTREPOSITORY
 
 /*

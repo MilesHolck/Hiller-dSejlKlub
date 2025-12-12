@@ -13,6 +13,8 @@ namespace HillerødSejlKlub
         public string Description { get; set; }
         DateTime CreatedDate { get; set; }
         Event Event { get; set; }
+
+
         public News(string title, string description)
         {
             this.Title = title;
@@ -32,11 +34,21 @@ namespace HillerødSejlKlub
         }
 
         public string ShowNews() 
-        { 
+        {
+            if (Event != null)
+            {
+                return $"NYT EVENT!!\n" +
+                    $"{Title}\n" +
+                    $"{Description}\n" +
+                    $"Du kan læse mere om eventet nedenfor: \n" +
+                    $"{Event.Name} \n" +
+                    $"{Event.Description} \n" +
+                    $"{Event.Date} \n";
+            }
             return $"BREAKING!!\nNyheder fra Hillerød Sejlklub\n" +
-                $"{Title}\n" +
-                $"{Description}\n" +
-                $"{Event.Date}";
+                    $"{Title}\n" +
+                    $"{Description}\n"; 
         }
+       
     }
 }
