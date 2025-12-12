@@ -26,13 +26,15 @@ namespace HillerødSejlKlub.Repositories
         }
         public void PrintAll()
         {
+            int i = 0; 
             foreach (Boat boat in _boatRepository)
             {
-                Console.WriteLine(boat.BoatName);
+                i++; 
+                Console.WriteLine($"{i}. {boat.BoatName}");
             }
         }
 
-        public void Update(Boat boat, string type, string model, string boatName, string sailNumber, string measurements, int builtYear)
+        public void Update(Boat boat, string type, string model, string boatName, int sailNumber, string measurements, int builtYear)
         {
             boat.Type = type;
             boat.Model = model;
@@ -68,13 +70,13 @@ namespace HillerødSejlKlub.Repositories
 
 
 
-        public string GetByNumber(string sailNumber)
+        public string GetByNumber(int sailNumber)
         {
             foreach (Boat boat in _boatRepository)
             {
                 if (sailNumber == boat.SailNumber)
                 {
-                    return $"Boat info: {boat}"; 
+                    return $"Boat number {sailNumber} found: \n{boat}"; 
                 }
 
             }
