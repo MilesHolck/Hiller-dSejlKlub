@@ -33,9 +33,11 @@ namespace HillerødSejlKlub
             StartTime = startTime;
             EndTime = endTime;
             User = user;
-            this.NumberParticipant = NumberParticipant;
+            this.NumberParticipant = NumberParticipant; //Vil du forklare this til os? 
             Destination = destination;
         }
+
+        //Man kan booke samme båd i samme tidsrum+dato. 
 
         public void StopBooking()
         {
@@ -58,6 +60,21 @@ namespace HillerødSejlKlub
         Console.WriteLine($"Båden {Boat.BoatName} er returneret til tiden");
     }
 }
+        public void SearchforBoat(int currentTime)
+        {
+            if (currentTime > EndTime.Hour && IsActive)
+            {
+                Console.WriteLine($"Båden {Boat.BoatName} er ikke returneret til korrekt tid. Der startes en eftersøgning");
+            }
+            else if (currentTime < EndTime.Hour && IsActive)
+            {
+                Console.WriteLine($"Båden {Boat.BoatName} er stadig ude og sejle"); //Båden er stadig ude at sejle inden bookingen går i gang.
+            }
+            else
+            {
+                Console.WriteLine($"Båden {Boat.BoatName} er returneret til tiden"); //Båden er stadig aktiv og returneret til tiden, hvis currenttime er = endtime.
+            }
+
 
 
         public override string ToString()

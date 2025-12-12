@@ -12,8 +12,6 @@ namespace HillerødSejlKlub
         public class Event
         {
 
-            //private List<User> _participants = new List<User>(); 
-
             public string Name { get; set; }          
             public string Description { get; set; }                  
             public DateTime Date { get; set; }         

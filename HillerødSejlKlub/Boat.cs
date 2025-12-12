@@ -14,16 +14,12 @@ namespace HillerødSejlKlub
         public string Type { get; set; }
         public string Model { get; set; }
         public string BoatName { get; set; }
-        public string SailNumber { get; set; }
+        public int SailNumber { get; set; }
         public string Measurements { get; set; }
         public int BuiltYear { get; set; }
-           
-        
-
-        // Damagereport liste
         public List<DamageReport> DamageReports { get; set; } = new List<DamageReport>();
 
-        public Boat(Engine engine, string type, string model, string name, string sailNumber, string measurements, int builtYear)
+        public Boat(Engine engine, string type, string model, string name, int sailNumber, string measurements, int builtYear)
         {
             Engine = engine;
             Type = type;
@@ -35,7 +31,7 @@ namespace HillerødSejlKlub
             
         }
 
-        public Boat(string type, string model, string name, string sailNumber, string measurements, int builtYear)
+        public Boat(string type, string model, string name, int sailNumber, string measurements, int builtYear)
         {
             Type = type;
             Model = model;
@@ -46,17 +42,14 @@ namespace HillerødSejlKlub
             
         }
 
-       public void AddDamage(string description, User reportedBy)
+       public string AddDamage(string description, User reportedBy)
         {
           DamageReport report = new DamageReport(description, reportedBy);
           DamageReports.Add(report);
+            return $"Damage report added to boat {BoatName}:\n{report.ToString()}";
         }
        
 
-        public string VedligeholdelsesLog()
-        {
-            return "Vedligeholdelseslog for båden ";
-        }
         public string Skadesrapport()
         {
             if (DamageReports.Count == 0)

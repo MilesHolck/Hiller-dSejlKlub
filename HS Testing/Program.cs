@@ -44,6 +44,16 @@ Julefrokkost.Participants.Add(memberName2);
 
 Console.WriteLine(Julefrokkost.ToString());
 
+BoatRepository BoatReposiroty = new BoatRepository();   
+
+BoatReposiroty.AddBoat(new Boat("Sailboat", "Model X", "Sea Breeze", "SN123", "30ft", 2015));
+
+BoatReposiroty.AddBoat(new Boat("Motorboat", "Model Y", "Wave Rider", "SN456", "25ft", 2018));
+
+BoatReposiroty.AddBoat(new Boat("Catamaran", "Model Z", "Twin Sail", "SN789", "40ft", 2020));   
+
+Console.WriteLine(BoatReposiroty.GetByNumber("1"));
+
 
 
 
