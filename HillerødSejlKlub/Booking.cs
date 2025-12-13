@@ -74,7 +74,7 @@ namespace HillerødSejlKlub
             {
                 Console.WriteLine($"Båden {Boat.BoatName} er returneret til tiden"); //Båden er stadig aktiv og returneret til tiden, hvis currenttime er = endtime.
             }
-
+        }
 
 
         public override string ToString()
