@@ -19,13 +19,13 @@ namespace HillerødSejlKlub.Repositories
         }
 
         //Interface methods
-        public string Add(User user)
+        public void Add(User user)
         {
             _members.Add(user);
-            return $"{user} has been registered."; 
+            Console.WriteLine($"{user.Name} has been registered."); 
         }
 
-        public void GetAll()
+        public void PrintAll()
         {
           foreach(User user in _members)
             {
@@ -40,27 +40,37 @@ namespace HillerødSejlKlub.Repositories
             user.PhoneNumber = phoneNumber;
             user.Email = email;
 
+            Console.WriteLine($"Member details have been updated:{user.ToString()} "); 
+
         }
 
-        public string Delete(User user)
+        public void Delete(User user)
         {
-            _members.Remove(user);
-            return $"{user} has been removed."; 
+            if (_members.Contains(user))
+            {
+                _members.Remove(user);
+                Console.WriteLine($"{user.Name} has been removed from the list.");
+            }else
+            { 
+                Console.WriteLine($"User not found on list.");
+            }
+
         }
 
-        public User GetByName(string name)
+        public string GetByName(string name)
         {
             foreach (User user in _members)
             {
                 if (user.Name == name)
                 {
-                    return user;
+                    return user.ToString();
                 }
+                
             }
 
-            return null;
+           return $"User with name {name} has not been found."; 
 
-            //Hvad skal der ske, hvis useren ikke er fundet i listen?
+            
         }
 
         public int Count()
@@ -68,11 +78,21 @@ namespace HillerødSejlKlub.Repositories
             return _members.Count(); 
         }
 
-        
-      // IKKE EN DEL AF INTERFACE.. ENDNU? 
+        public override string ToString()
+        {
+            string result = "Her er et overblik over alle medlemmer: \n"; 
+
+            foreach(User user in _members)
+            {
+                result = result + user.ToString() + "\n";
+                
+            }
+            return result; 
+        }
 
 
-        public User GetMemberById(int id)
+
+        public string GetMemberById(int id)
         {
             string idString = id.ToString();
 
@@ -80,11 +100,11 @@ namespace HillerødSejlKlub.Repositories
             {
                 if (user.MemberId.ToString() == idString)
                 {
-                    return user;
+                    return user.ToString();
                 }
             }
 
-            return null;
+            return $"User with id no. {id} has not been found."; 
         }
 
        

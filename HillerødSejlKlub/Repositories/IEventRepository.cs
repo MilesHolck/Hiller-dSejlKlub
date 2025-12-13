@@ -12,13 +12,13 @@ namespace HillerødSejlKlub.Repositories
 
         public void AddEvent(Event eventToAdd); 
 
-        public void GetAll();
+        public void PrintAll();
 
         public void UpdateEvent(Event eventToUpdate, string name, string description, DateTime date, bool requiresSignup);
 
-        public void Delete(Event eventToDelete);
+        public void DeleteEvent(Event eventToDelete);
 
-        public Event GetByName(string name);
+        public string GetByName(string name);
 
         public int Count();
     }

@@ -30,6 +30,9 @@ namespace HillerødSejlKlub
         {
             return $"Skadesrapport:\nDato: {Date}\nBeskrivelse: {Description}\nIndberettet af: {ReportedBy.Name}\nStatus: {Status}";
         }
+        
+      
+
 
     }
 
