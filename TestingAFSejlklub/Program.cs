@@ -223,7 +223,7 @@ boatRepo.AddBoat(boat3);
 
 Console.WriteLine("--------TEST AF FIND BY NUMBER------");
 
-Console.WriteLine(boatRepo.GetByNumber(777)); 
+Console.WriteLine(boatRepo.GetByNumber(777));
 
 
 
@@ -327,21 +327,24 @@ Console.WriteLine("\n");
 
 
 //Test af booking system 
-//Console.WriteLine("__________Booking Test__________");
 
-//Booking booking1 = new Booking (Wiebke, new DateTime(2025, 12, 12, 10, 00, 00), new DateTime(2025, 12, 12, 15, 00, 00), user1, 4, "Hillerød");
-//Booking booking2 = new Booking (Bohlen, new DateTime(2025, 12, 21, 10, 00, 00), new DateTime(2025, 12, 21, 15, 00, 00), user2, 2, "Frederikssund");
-//Console.WriteLine(booking1.ToString());
-//Console.WriteLine(booking2.ToString());
+Boat boatUno = new Boat("Motorbåd", "Yacht", "Sunny", 777, "40 ft l ft W", 2010);
+Boat boatDos = new Boat("Sejlbåd", "Ketch", "Black Pearl", 888, "60 ft l ft W", 2000);
+Console.WriteLine("__________Booking Test__________");
 
-//// Test af Booking Repository
-//Console.WriteLine("________BookingRepo Test________");
-//BookingRepository repository = new BookingRepository(); //opretter et repository objekt
+Booking booking1 = new Booking(boatUno, new DateTime(2025, 12, 12, 20, 00, 00), new DateTime(2025, 12, 12, 22, 00, 00), Ida, 4, "Hillerød");
+Booking booking2 = new Booking(boatDos, new DateTime(2025, 12, 21, 10, 00, 00), new DateTime(2025, 12, 21, 15, 00, 00), Ida, 2, "Frederikssund");
+Console.WriteLine(booking1.ToString());
+Console.WriteLine(booking2.ToString());
 
-//booking1.SearchforBoat(DateTime.Now);  
-//booking2.SearchforBoat(DateTime.Now);
+// Test af Booking Repository
+Console.WriteLine("________BookingRepo Test________");
+BookingRepository repository = new BookingRepository(); //opretter et repository objekt
 
-//booking1.StopBooking(); //stopper booking 1
+booking1.SearchforBoat(new DateTime(2025, 12, 13, 20, 00, 00));
+booking2.SearchforBoat(new DateTime(2025, 12, 13, 20, 00, 00));
+
+booking1.StopBooking(); //stopper booking 1
 
 
 
