@@ -341,12 +341,41 @@ Console.WriteLine(booking2.ToString());
 Console.WriteLine("________BookingRepo Test________");
 BookingRepository repository = new BookingRepository(); //opretter et repository objekt
 
-booking1.SearchforBoat(new DateTime(2025, 12, 13, 20, 00, 00));
-booking2.SearchforBoat(new DateTime(2025, 12, 13, 20, 00, 00));
+//booking1.SearchforBoat(new DateTime(2025, 12, 13, 20, 00, 00));
+//booking2.SearchforBoat(new DateTime(2025, 12, 13, 20, 00, 00));
 
-booking1.StopBooking(); //stopper booking 1
+//booking1.StopBooking(); //stopper booking 1
 
+Console.WriteLine("________Overlap test________");
 
+Booking Base = new Booking(boatUno, new DateTime(2025, 12, 12, 21, 00, 00), new DateTime(2025, 12, 12, 23, 00, 00), Ida, 3, "Copenhagen");
+
+Booking overLapBefore = new Booking(boatUno, new DateTime(2025, 12, 12, 19, 00, 00), new DateTime(2025, 12, 12, 21, 00, 00), Ida, 3, "Copenhagen");
+Booking overLapAfter = new Booking(boatUno, new DateTime(2025, 12, 12, 23, 00, 00), new DateTime(2025, 12, 13, 01, 00, 00), Ida, 3, "Copenhagen");
+Booking noProblems = new Booking(boatUno, new DateTime(2025, 12, 12, 23, 30, 00), new DateTime(2025, 12, 12, 00, 30, 00), Ida, 3, "Copenhagen");
+
+repository.AddBooking(Base);
+try 
+{ 
+repository.AddBooking(overLapBefore); 
+} 
+catch (Exception e) 
+{ 
+    Console.WriteLine($"Succesfull Error: {e.Message}");
+}
+
+try
+{
+    repository.AddBooking(overLapAfter);
+}
+catch (Exception e)
+{
+    Console.WriteLine($"Succesfull Error: {e.Message}");
+}
+
+repository.AddBooking(noProblems);
+
+Console.WriteLine(repository.GetOne(noProblems.Id));
 
 
 
