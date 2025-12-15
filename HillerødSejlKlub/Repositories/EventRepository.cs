@@ -15,6 +15,7 @@ namespace HillerødSejlKlub.Repositories
         //Constructor
         public EventRepository() 
         {
+
             _eventRepository = new List<Event>(); 
         }
 
