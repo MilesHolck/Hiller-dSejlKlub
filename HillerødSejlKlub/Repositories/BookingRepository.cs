@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace HillerødSejlKlub.Repositories
 {
-    public class BookingReopsitory
+    public class BookingRepository
     {
         private List<Booking> _bookedBoats { get; }
 
-        public BookingReopsitory()
+        public BookingRepository()
         {
             _bookedBoats = new List<Booking>();
 

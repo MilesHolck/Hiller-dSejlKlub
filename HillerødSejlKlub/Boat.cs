@@ -14,12 +14,12 @@ namespace HillerødSejlKlub
         public string Type { get; set; }
         public string Model { get; set; }
         public string BoatName { get; set; }
-        public string SailNumber { get; set; }
+        public int SailNumber { get; set; }
         public string Measurements { get; set; }
         public int BuiltYear { get; set; }
         public List<DamageReport> DamageReports { get; set; } = new List<DamageReport>();
 
-        public Boat(Engine engine, string type, string model, string name, string sailNumber, string measurements, int builtYear)
+        public Boat(Engine engine, string type, string model, string name, int sailNumber, string measurements, int builtYear)
         {
             Engine = engine;
             Type = type;
@@ -31,7 +31,7 @@ namespace HillerødSejlKlub
             
         }
 
-        public Boat(string type, string model, string name, string sailNumber, string measurements, int builtYear)
+        public Boat(string type, string model, string name, int sailNumber, string measurements, int builtYear)
         {
             Type = type;
             Model = model;
