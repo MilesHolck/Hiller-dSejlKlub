@@ -3,6 +3,14 @@ using HillerødSejlKlub;
 using HillerødSejlKlub.HillerødSejlKlub;
 using HillerødSejlKlub.Repositories;
 
+//test af båd
+//Boat Wiebke = new Boat("Sejlbåd", "Skonnert", "Wiebke", "20 ft l ft W", 1990);
+//Boat Bohlen = new Boat("Motorbåd", "Yacht", "Bohlen", "40 ft l ft W", 2010);
+
+//Console.WriteLine(Wiebke.ToString());
+/*
+Console.WriteLine("----TEST AF EVENT OG METODER ------");
+Console.WriteLine(Wiebke.ToString());
 /*
 Console.WriteLine("----TEST AF EVENT OG METODER ------");
 
@@ -215,7 +223,7 @@ boatRepo.AddBoat(boat3);
 
 Console.WriteLine("--------TEST AF FIND BY NUMBER------");
 
-Console.WriteLine(boatRepo.GetByNumber(777)); 
+Console.WriteLine(boatRepo.GetByNumber(777));
 
 
 
@@ -315,6 +323,62 @@ admin1.UpdateEvent(event1, "turnering", "1. Fredags Sejlads", new DateTime(2029,
 Console.WriteLine(event1.ToString());
 Console.WriteLine("\n");
 */
+
+
+
+//Test af booking system 
+
+Boat boatUno = new Boat("Motorbåd", "Yacht", "Sunny", 777, "40 ft l ft W", 2010);
+Boat boatDos = new Boat("Sejlbåd", "Ketch", "Black Pearl", 888, "60 ft l ft W", 2000);
+Console.WriteLine("__________Booking Test__________");
+
+Booking booking1 = new Booking(boatUno, new DateTime(2025, 12, 12, 20, 00, 00), new DateTime(2025, 12, 12, 22, 00, 00), Ida, 4, "Hillerød");
+Booking booking2 = new Booking(boatDos, new DateTime(2025, 12, 21, 10, 00, 00), new DateTime(2025, 12, 21, 15, 00, 00), Ida, 2, "Frederikssund");
+Console.WriteLine(booking1.ToString());
+Console.WriteLine(booking2.ToString());
+
+// Test af Booking Repository
+Console.WriteLine("________BookingRepo Test________");
+BookingRepository repository = new BookingRepository(); //opretter et repository objekt
+
+//booking1.SearchforBoat(new DateTime(2025, 12, 13, 20, 00, 00));
+//booking2.SearchforBoat(new DateTime(2025, 12, 13, 20, 00, 00));
+
+//booking1.StopBooking(); //stopper booking 1
+
+Console.WriteLine("________Overlap test________");
+
+Booking Base = new Booking(boatUno, new DateTime(2025, 12, 12, 21, 00, 00), new DateTime(2025, 12, 12, 23, 00, 00), Ida, 3, "Copenhagen");
+
+Booking overLapBefore = new Booking(boatUno, new DateTime(2025, 12, 12, 19, 00, 00), new DateTime(2025, 12, 12, 21, 00, 00), Ida, 3, "Copenhagen");
+Booking overLapAfter = new Booking(boatUno, new DateTime(2025, 12, 12, 23, 00, 00), new DateTime(2025, 12, 13, 01, 00, 00), Ida, 3, "Copenhagen");
+Booking noProblems = new Booking(boatUno, new DateTime(2025, 12, 12, 23, 30, 00), new DateTime(2025, 12, 12, 00, 30, 00), Ida, 3, "Copenhagen");
+
+repository.AddBooking(Base);
+try 
+{ 
+repository.AddBooking(overLapBefore); 
+} 
+catch (Exception e) 
+{ 
+    Console.WriteLine($"Succesfull Error: {e.Message}");
+}
+
+try
+{
+    repository.AddBooking(overLapAfter);
+}
+catch (Exception e)
+{
+    Console.WriteLine($"Succesfull Error: {e.Message}");
+}
+
+repository.AddBooking(noProblems);
+
+Console.WriteLine(repository.GetOne(noProblems.Id));
+
+
+
 
 
 
