@@ -10,24 +10,24 @@ namespace HillerødSejlKlub.Repositories
     {
 
 
-        private List<Boat> _boatRepository;
+        private List<Boat> _boats;
 
 
         public BoatRepository()
         {
-            _boatRepository = new List<Boat>();
+            _boats = new List<Boat>();
         }
 
 
         public void AddBoat(Boat boat)
         {
-            _boatRepository.Add(boat);
+            _boats.Add(boat);
             Console.WriteLine(boat.BoatName + " has been added to the list.");
         }
         public void PrintAll()
         {
             int i = 0; 
-            foreach (Boat boat in _boatRepository)
+            foreach (Boat boat in _boats)
             {
                 i++; 
                 Console.WriteLine($"{i}. {boat.BoatName}");
@@ -48,12 +48,12 @@ namespace HillerødSejlKlub.Repositories
 
         public void DeleteBoat(Boat boat)
         {
-            for(int i = 0; i < _boatRepository.Count(); i++) 
+            for(int i = 0; i < _boats.Count(); i++) 
             {
-                if(_boatRepository.Contains(boat))
+                if(_boats.Contains(boat))
                 { 
 
-                    _boatRepository.Remove(boat);
+                    _boats.Remove(boat);
 
                     Console.WriteLine(boat.BoatName + " has been removed from the list.");
                     break;
@@ -72,7 +72,7 @@ namespace HillerødSejlKlub.Repositories
 
         public string GetByNumber(int sailNumber)
         {
-            foreach (Boat boat in _boatRepository)
+            foreach (Boat boat in _boats)
             {
                 if (sailNumber == boat.SailNumber)
                 {
@@ -87,7 +87,7 @@ namespace HillerødSejlKlub.Repositories
           
         public int Count()
         {
-            return _boatRepository.Count();
+            return _boats.Count();
         }
 
        
@@ -95,7 +95,7 @@ namespace HillerødSejlKlub.Repositories
         {
             string result = $"Her er en oversigt over alle både:\n";
 
-            foreach (Boat boats in _boatRepository)
+            foreach (Boat boats in _boats)
             {
                 result = result + boats.ToString() + "\n";
 
