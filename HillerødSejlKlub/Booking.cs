@@ -33,11 +33,11 @@ namespace HillerødSejlKlub
             StartTime = startTime;
             EndTime = endTime;
             User = user;
-            this.NumberParticipant = NumberParticipant; //Vil du forklare this til os? 
+            this.NumberParticipant = NumberParticipant; 
             Destination = destination;
         }
 
-        //Man kan booke samme båd i samme tidsrum+dato. 
+  
 
         public void StopBooking()
         {
