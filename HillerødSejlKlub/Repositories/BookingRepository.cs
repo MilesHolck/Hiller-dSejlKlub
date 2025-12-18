@@ -56,15 +56,13 @@ namespace HillerødSejlKlub.Repositories
         {
             foreach (Booking bookedBoat in _bookedBoats)
             {
-                if (booking.Boat.SailNumber == bookedBoat.Boat.SailNumber) //er det den samme båd? ⛵ 
-                {   
+                if (booking.Boat.SailNumber == bookedBoat.Boat.SailNumber)                 {   
                     //overlapper starttiden med den allerede eksisternde booking?
                     if (booking.StartTime >= bookedBoat.StartTime && booking.StartTime <= bookedBoat.EndTime) 
                     {
                         throw new Exception("Båden er allerede booket i det ønskede tidsrum.");
                     }
-                    if (booking.EndTime >= bookedBoat.StartTime && booking.EndTime <= bookedBoat.EndTime) //same men flippet 
-                    {
+                    if (booking.EndTime >= bookedBoat.StartTime && booking.EndTime <= bookedBoat.EndTime)                     {
                         throw new Exception("Båden er allerede booket i det ønskede tidsrum.");
                     }
                 }
