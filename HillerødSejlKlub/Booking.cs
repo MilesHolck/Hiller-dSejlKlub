@@ -33,9 +33,11 @@ namespace HillerødSejlKlub
             StartTime = startTime;
             EndTime = endTime;
             User = user;
-            this.NumberParticipant = NumberParticipant;
+            this.NumberParticipant = NumberParticipant; 
             Destination = destination;
         }
+
+  
 
         public void StopBooking()
         {
@@ -43,21 +45,26 @@ namespace HillerødSejlKlub
         }
 
 
-        public void SearchforBoat(int currentTime)
+       
+        public void SearchforBoat(DateTime currentTime)
         {
-            if (currentTime > EndTime.Hour && IsActive)
+            if (currentTime > EndTime && IsActive)
             {
                 Console.WriteLine($"Båden {Boat.BoatName} er ikke returneret til korrekt tid. Der startes en eftersøgning");
             }
-            else if (currentTime < EndTime.Hour && IsActive)
+            else if (currentTime < StartTime && IsActive)
             {
-                Console.WriteLine($"Båden {Boat.BoatName} er stadig ude og sejle");
+                Console.WriteLine($"Båden {Boat.BoatName} er endnu ikke sejlet ud"); //Båden er endnu ikke sejlet ud, hvis currenttime er før starttime.
+            }
+
+            else if (currentTime < EndTime && IsActive)
+            {
+                Console.WriteLine($"Båden {Boat.BoatName} er stadig ude og sejle"); //Båden er stadig ude at sejle inden bookingen går i gang.
             }
             else
             {
-                Console.WriteLine($"Båden {Boat.BoatName} er returneret til tiden");
+                Console.WriteLine($"Båden {Boat.BoatName} er returneret til tiden"); //Båden er stadig aktiv og returneret til tiden, hvis currenttime er = endtime.
             }
-
 
         }
 
