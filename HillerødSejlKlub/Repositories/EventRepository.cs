@@ -10,13 +10,13 @@ namespace HillerødSejlKlub.Repositories
     public class EventRepository : IEventRepository 
     { 
         //Instance field 
-        private static List<Event> _eventRepository;
+        private static List<Event> _events;
 
         //Constructor
         public EventRepository() 
         {
 
-            _eventRepository = new List<Event>(); 
+            _events = new List<Event>(); 
         }
 
         //Methods
@@ -24,7 +24,7 @@ namespace HillerødSejlKlub.Repositories
 
         public void AddEvent(Event eventToAdd)
         {
-            _eventRepository.Add(eventToAdd);
+            _events.Add(eventToAdd);
             Console.WriteLine($"The event {eventToAdd.Name} has been added to the list."); 
         }
 
@@ -32,7 +32,7 @@ namespace HillerødSejlKlub.Repositories
 
         public void PrintAll()
         {
-         foreach(Event events in _eventRepository)
+         foreach(Event events in _events)
             {
                 Console.WriteLine(events.Name);
             }
@@ -51,9 +51,9 @@ namespace HillerødSejlKlub.Repositories
         public void DeleteEvent(Event eventToDelete)
         {
 
-            if(_eventRepository.Contains(eventToDelete))
+            if(_events.Contains(eventToDelete))
                 {
-                 _eventRepository.Remove(eventToDelete);
+                 _events.Remove(eventToDelete);
                  Console.WriteLine($"The event {eventToDelete.Name} has been removed from the list."); 
 
                 }else
@@ -67,7 +67,7 @@ namespace HillerødSejlKlub.Repositories
 
         public string GetByName(string name)
         {
-            foreach (Event events in _eventRepository)
+            foreach (Event events in _events)
             {
                 if (events.Name == name)
                 {
@@ -83,14 +83,14 @@ namespace HillerødSejlKlub.Repositories
 
         public int Count()
         {
-            return _eventRepository.Count(); 
+            return _events.Count(); 
         }
 
         public override string ToString()
         {
             string result = $"Her er en oversigt over dine events:\n";
 
-            foreach (var events in _eventRepository)
+            foreach (var events in _events)
             {
                 result = result + events.ToString() + "\n"; 
                 

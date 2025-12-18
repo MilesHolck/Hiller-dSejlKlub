@@ -8,17 +8,16 @@ namespace HillerødSejlKlub.Repositories
 {
     public class MemberRepository : IUserRepository
     {
-        //Instance field
+       
         private List<User> _members; 
         
         
-        //Constructor 
         public MemberRepository()
         {
             _members = new List<User>(); 
         }
 
-        //Interface methods
+
         public void Add(User user)
         {
             _members.Add(user);
